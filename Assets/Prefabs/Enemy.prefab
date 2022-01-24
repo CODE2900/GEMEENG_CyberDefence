@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7298887397441308322}
   - component: {fileID: 721054108}
-  - component: {fileID: 721054110}
   - component: {fileID: 721054107}
+  - component: {fileID: 1142104800037875508}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -51,20 +51,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!136 &721054110
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7298887397441308323}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.21
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.83, z: 0}
 --- !u!114 &721054107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,9 +71,22 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   currentWaypoint: 0
-  minDistanceToWaypoint: 1
-  movementSpeed: 2
+  minDistanceToWaypoint: 0.5
+  movementSpeed: 10
   rigidBody: {fileID: 721054108}
+--- !u!65 &1142104800037875508
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298887397441308323}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.62, z: 1}
+  m_Center: {x: 0, y: 0.77, z: 0}
 --- !u!1 &7298887397510647246
 GameObject:
   m_ObjectHideFlags: 0

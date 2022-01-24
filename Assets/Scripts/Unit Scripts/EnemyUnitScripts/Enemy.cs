@@ -15,7 +15,7 @@ public class Enemy : Unit
     // Start is called before the first frame update
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();  
+        rigidBody = this.gameObject.GetComponent<Rigidbody>();  
         currentWaypoint = 0;
     }
 
@@ -55,5 +55,23 @@ public class Enemy : Unit
         float distance = Vector3.Distance(rigidBody.transform.position, waypoints[currentWaypoint].transform.position);
         Debug.Log("Distance between enemy and waypoint: " + distance);
         return distance <= minDistanceToWaypoint; 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Unit unitCollided = collision.gameObject.GetComponent<Unit>();
+        if (unitCollided)
+        {
+            HealthComponent unitHealthComponent = unitCollided.gameObject.GetComponent<HealthComponent>();
+            if (unitHealthComponent)
+            {
+                unitHealthComponent.TakeDamage(1);
+                Destroy(this.gameObject);
+            }
+        }
+        else
+        {
+            Debug.Log("Not Unit collided");
+        }
     }
 }
