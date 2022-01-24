@@ -9,6 +9,8 @@ public class PlayerCamera : MonoBehaviour
     public float xRotation = 0f;
     public Transform player;
 
+    RaycastHit hit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region mouseControls
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
@@ -26,8 +29,17 @@ public class PlayerCamera : MonoBehaviour
 
         this.gameObject.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         player.Rotate(Vector3.up * mouseX);
+        #endregion
 
-        
+        #region raycasting
+        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
+        Debug.DrawRay(this.transform.position, forward, Color.red);
 
+        if (Physics.Raycast(this.transform.position, forward, out hit, 10))
+        {
+            Debug.DrawRay(this.transform.position, forward, Color.green);
+            Debug.Log(hit.collider.gameObject.name);
+        }
+        #endregion
     }
 }
