@@ -18,7 +18,15 @@ public class EnemyAIStateMachine : StateMachineBehaviour
     // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        target = unit.GetComponent<Enemy>().Target;
+        if (target)
+        {
+            animator.SetBool("hasTarget", true);
+        }
+        else
+        {
+            animator.SetBool("hasTarget", true);
+        }
     }
 
     // OnStateExit is called before OnStateExit is called on any state inside this state machine
