@@ -12,6 +12,10 @@ public class Enemy : Unit
     public float movementSpeed = 1f;
     [SerializeField]
     Rigidbody rigidBody;
+
+    [Header("Enemy Targeting")]
+    GameObject target;
+    public GameObject Target { get { return target; } set { } }
     // Start is called before the first frame update
     void Start()
     {
