@@ -13,21 +13,23 @@ public class MovementControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+
         if (this.gameObject.GetComponent<Rigidbody>() != null)
         {
             rb = this.gameObject.GetComponent<Rigidbody>();
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        move = transform.right * x + transform.forward * z;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        move = transform.right * x + transform.forward * z;
     }
 
     private void FixedUpdate()
@@ -35,4 +37,6 @@ public class MovementControls : MonoBehaviour
 
         rb.MovePosition(transform.position + (move * speed * Time.deltaTime));
     }
+
+
 }
