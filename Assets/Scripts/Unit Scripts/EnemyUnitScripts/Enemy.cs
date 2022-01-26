@@ -55,14 +55,6 @@ public class Enemy : Unit
             {
                 Debug.Log(waypoints[currentWaypoint].transform.position);
                 this.gameObject.transform.LookAt(waypoints[currentWaypoint].transform);
-                //this.gameObject.transform.rotation = Quaternion.LookRotation(waypoints[currentWaypoint].transform.position, Vector3.forward);
-                //Vector3 targetDirection = waypoints[currentWaypoint].transform.position - this.gameObject.transform.position;
-                //Quaternion rotationToTarget = Quaternion.LookRotation(targetDirection);
-                //transform.rotation = rotationToTarget;
-                //this.gameObject.transform.rotation = rotationToTarget;
-                //Vector3 lookDirection = Vector3.RotateTowards(this.gameObject.transform.position, targetDirection, 10 * Time.deltaTime, 0);
-                //this.gameObject.transform.rotation = Quaternion.LookRotation(lookDirection);
-                //rigidBody.MovePosition(this.gameObject.transform.position);
                 this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, waypoints[currentWaypoint].transform.position, movementSpeed * Time.deltaTime);
                
             }
