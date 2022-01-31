@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public List<GameObject> waypoints = new List<GameObject>();
+
+    private void Awake()
+    {
+        SingletonManager.Register(this);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
