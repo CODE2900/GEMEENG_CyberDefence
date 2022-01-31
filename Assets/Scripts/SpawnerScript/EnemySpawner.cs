@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
             //{
                 Assert.IsNotNull(enemyPrefab, "Enemy prefab should not be null or empty");
                 GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-                spawnedEnemy.GetComponent<Enemy>().waypoints = waypoints;
+                spawnedEnemy.GetComponent<AIMovement>().waypoints = waypoints;
             //}
             
         //}

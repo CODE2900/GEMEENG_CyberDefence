@@ -12,7 +12,7 @@ public class EnemyAIStateMachine : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
-        unit = animator.gameObject;
+        unit = animator.gameObject.transform.parent.transform.parent.gameObject;
     }
 
     // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
@@ -25,8 +25,22 @@ public class EnemyAIStateMachine : StateMachineBehaviour
         }
         else
         {
-            animator.SetBool("hasTarget", true);
+            animator.SetBool("hasTarget", false);
+            animator.SetBool("isPatrolling", true);
         }
+        //if (unit.GetComponent<AIMovement>().IsLastWaypoint())
+        //{
+        //    animator.SetBool("isPatrolling", false);
+        //    animator.SetBool("isIdle", true);
+        //}
+       
+        //else if (unit.GetComponent<Enemy>().Target)
+        //{
+        //    if (unit.GetComponent<Animator>().GetBool("hasTarget") == false)
+        //    {
+        //        unit.GetComponent<Animator>().SetBool("hasTarget", true);
+        //    }
+        //}
     }
 
     // OnStateExit is called before OnStateExit is called on any state inside this state machine

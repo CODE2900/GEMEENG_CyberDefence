@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 721054108}
   - component: {fileID: 721054107}
   - component: {fileID: 1142104800037875508}
+  - component: {fileID: 5104021586838863380}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -155,17 +156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  currentWaypoint: 0
-  minDistanceToWaypoint: 0.5
-  movementSpeed: 10
-  rotationSpeed: 1
-  rigidBody: {fileID: 721054108}
   target: {fileID: 0}
   damage: 1
   range: 50
@@ -183,6 +173,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.62, z: 1}
   m_Center: {x: 0, y: 0.77, z: 0}
+--- !u!114 &5104021586838863380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298887397441308323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9950c9462904350428885c66e2d60d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  currentWaypoint: 0
+  minDistanceToWaypoint: 0.1
+  movementSpeed: 2
+  rotationSpeed: 1
+  rigidBody: {fileID: 0}
 --- !u!1 &7298887397510647246
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +279,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95096058574463750, guid: e7965cb5f3b6b49439772edd4131b2b0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7433cb4ec34e7c94badd2410944ce953, type: 2}
     - target: {fileID: 95096058574463750, guid: e7965cb5f3b6b49439772edd4131b2b0, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
