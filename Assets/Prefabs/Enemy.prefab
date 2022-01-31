@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 721054107}
   - component: {fileID: 1142104800037875508}
   - component: {fileID: 5104021586838863380}
+  - component: {fileID: 723038966285981590}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -155,8 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b132a325fb5538b4d844197b88882982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 
   unitName: 
-  target: {fileID: 0}
   damage: 1
   range: 50
   firePoint: {fileID: 26307306774481213}
@@ -188,9 +189,23 @@ MonoBehaviour:
   waypoints: []
   currentWaypoint: 0
   minDistanceToWaypoint: 0.1
-  movementSpeed: 2
+  movementSpeed: 5
   rotationSpeed: 1
   rigidBody: {fileID: 0}
+--- !u!114 &723038966285981590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298887397441308323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e5707bd65f2624c8bb824f0bbe93b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  targets: []
 --- !u!1 &7298887397510647246
 GameObject:
   m_ObjectHideFlags: 0

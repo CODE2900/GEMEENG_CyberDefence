@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    public string Id;
     public string unitName; 
 
     // Start is called before the first frame update

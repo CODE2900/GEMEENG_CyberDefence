@@ -29,19 +29,7 @@ public class AIMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!unit.GetComponent<Enemy>().Target)
-        //{
-        //    if (unit.GetComponent<Animator>().GetBool("isPatrolling") == false)
-        //    {
-        //        unit.GetComponent<Animator>().SetBool("isPatrolling", true);
-        //    }
-        //}
-        //else if(unit.GetComponent<Enemy>().Target)
-        //{
-        //    if (unit.GetComponent<Animator>().GetBool("hasTarget") == false){
-        //        unit.GetComponent<Animator>().SetBool("hasTarget", true);
-        //    }
-        //}
+     
     }
     public void MoveToWaypoint()
     {

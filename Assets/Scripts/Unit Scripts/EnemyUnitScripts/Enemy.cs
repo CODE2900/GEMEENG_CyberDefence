@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Enemy : Unit
 {
-    [Header("Enemy Targeting")]
-    [SerializeField]
-    GameObject target;
-    public GameObject Target { get { return target; } set { target = value; } }
     public float damage = 1;
     public float range = 100f;
     public GameObject firePoint;
@@ -57,7 +53,6 @@ public class Enemy : Unit
             Debug.Log("Object Hit: " + hit.transform.name);
         }
         
-
     }
 
 }

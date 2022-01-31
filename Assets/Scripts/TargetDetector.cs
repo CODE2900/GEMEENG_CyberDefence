@@ -19,11 +19,10 @@ public class TargetDetector : MonoBehaviour
         Unit unitCollided = other.GetComponent<Unit>();
         if (unitCollided)
         {
-            MainBase baseTarget = unitCollided.gameObject.GetComponent<MainBase>();
-            if (baseTarget)
-            {
-                unit.GetComponent<Enemy>().Target = baseTarget.gameObject;
-            }
+            
+           
+           unit.GetComponent<Targeting>().Target = unitCollided.gameObject;
+           
             
         }
     }
@@ -31,13 +30,11 @@ public class TargetDetector : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Unit unitCollided = other.GetComponent<Unit>();
-        if (unitCollided)
+        if (unitCollided == unit.GetComponent<Targeting>().Target)
         {
-            MainBase baseTarget = unitCollided.gameObject.GetComponent<MainBase>();
-            if (baseTarget)
-            {
-                unit.GetComponent<Enemy>().Target = null;
-            }
+
+            unit.GetComponent<Targeting>().Target = null;
+            
 
         }
     }
