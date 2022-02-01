@@ -54,7 +54,7 @@ public class AIMovement : MonoBehaviour
     public bool IsEnemyNearWaypoint()
     {
         float distance = Vector3.Distance(rigidBody.transform.position, waypoints[currentWaypoint].transform.position);
-        Debug.Log("Distance between enemy and waypoint: " + distance);
+        //Debug.Log("Distance between enemy and waypoint: " + distance);
         return distance <= minDistanceToWaypoint;
     }
     public bool IsLastWaypoint()

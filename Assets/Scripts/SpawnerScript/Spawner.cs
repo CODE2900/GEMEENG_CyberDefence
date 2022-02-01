@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class EnemySpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
     [SerializeField]
@@ -11,11 +11,12 @@ public class EnemySpawner : MonoBehaviour
     public List<GameObject> waypoints = new List<GameObject>();
     public int numOfEnemiesToSpawn = 1;
 
-    Coroutine spawnEnemiesRoutine;
+    public Coroutine spawnEnemiesRoutine;
     // Start is called before the first frame update
     void Start()
     {
-        spawnEnemiesRoutine = StartCoroutine(SpawningEnemies());
+        //spawnEnemiesRoutine = StartCoroutine(SpawningEnemies());
+        
     }
 
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
-    void SpawnEnemies()
+    public void SpawnEnemies()
     {
         //if(numOfEnemiesToSpawn > 0)
         //{
@@ -36,6 +37,11 @@ public class EnemySpawner : MonoBehaviour
             //}
             
         //}
+    }
+
+    public void BeginSpawning()
+    {
+        spawnEnemiesRoutine = StartCoroutine(SpawningEnemies());
     }
 
     IEnumerator SpawningEnemies()
