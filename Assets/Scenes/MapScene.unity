@@ -1684,7 +1684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3e816d37b999b459d41ddbe276fea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 
+  Id: building-base-1
   unitName: Main Base
 --- !u!54 &1413293388
 Rigidbody:
