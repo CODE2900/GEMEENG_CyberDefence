@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TileInteract : MonoBehaviour
+public class TileInteract : MonoBehaviour // Rename to "Tile" class 
 {
-    public UnityEvent InteractedTile = new UnityEvent();
-    public Material[] materials;
-
+    //public UnityEvent InteractedTile = new UnityEvent();
+    public Material[] Materials;
+    public Interactable Interactable;
     // Start is called before the first frame update
     void Start()
     {
-        InteractedTile.AddListener(tileInteract);
-       
+        Interactable.EvtInteracted.AddListener(Interact);
+       //
     }
 
     // Update is called once per frame
@@ -23,12 +23,12 @@ public class TileInteract : MonoBehaviour
 
     public void FixedUpdate()
     {
-        this.gameObject.GetComponent<Renderer>().material = materials[0];
+        this.gameObject.GetComponent<Renderer>().material = Materials[0];
     }
 
-    public void tileInteract()
+    public void Interact()
     {
-        this.gameObject.GetComponent<Renderer>().material = materials[1];
+        this.gameObject.GetComponent<Renderer>().material = Materials[1];
     }
 
 }

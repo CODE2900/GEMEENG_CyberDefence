@@ -39,6 +39,8 @@ public class AIMovement : MonoBehaviour
             {
                 Debug.Log(waypoints[currentWaypoint].transform.position);
                 this.gameObject.transform.LookAt(waypoints[currentWaypoint].transform);
+                //Vector3 waypointPos = waypoints[currentWaypoint].transform.position;
+                //waypointPos.y = 0; // use raycast at the bottom of the model. Use hit.point for the Y pos.
                 this.gameObject.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, waypoints[currentWaypoint].transform.position, movementSpeed * Time.deltaTime);
 
             }

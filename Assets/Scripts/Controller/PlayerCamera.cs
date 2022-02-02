@@ -40,9 +40,9 @@ public class PlayerCamera : MonoBehaviour
             Debug.DrawRay(this.transform.position, forward, Color.green);
             Debug.Log(hit.collider.gameObject.name);
 
-            if (hit.collider.gameObject.GetComponent<TileInteract>() != null)
+            if (hit.collider.gameObject.GetComponent<Interactable>() != null)
             {
-                hit.collider.gameObject.GetComponent<TileInteract>().InteractedTile.Invoke();
+                hit.collider.gameObject.GetComponent<Interactable>().Interact();
             }
         }
         #endregion

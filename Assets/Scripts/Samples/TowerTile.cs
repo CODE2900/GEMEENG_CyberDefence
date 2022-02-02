@@ -12,8 +12,8 @@ public class TowerTile : MonoBehaviour
         Interactable.EvtInteracted.AddListener(OnInteracted);
         Interactable.EvtInteracted.RemoveListener(OnInteracted);
         Interactable.EvtInteracted.RemoveAllListeners();
-        Interactable.Interacted += OnInteracted;
-        Interactable.Interacted -= OnInteracted;
+        //Interactable.Interacted += OnInteracted;
+        //Interactable.Interacted -= OnInteracted;
         
     }
 

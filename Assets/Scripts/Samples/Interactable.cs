@@ -13,12 +13,12 @@ public class Interactable : MonoBehaviour
     
     }*/
     public UnityEvent EvtInteracted = new UnityEvent();
-    public UnityAction Interacted;
+    //public UnityAction Interacted;
 
     public void Interact()
     {
         EvtInteracted.Invoke();
-        Interacted.Invoke(); 
+        //Interacted.Invoke(); 
     }
 
 
