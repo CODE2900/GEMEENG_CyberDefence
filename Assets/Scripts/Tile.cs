@@ -1,24 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class TileInteract : MonoBehaviour // Rename to "Tile" class 
+public class Tile : MonoBehaviour
 {
-    //public UnityEvent InteractedTile = new UnityEvent();
     public Material[] Materials;
+
     public Interactable Interactable;
+
+    [SerializeField] bool isEmpty = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        Interactable.EvtInteracted.AddListener(Interact);
-       //
+        if(Interactable != null)
+        {
+            Interactable.EvtInteracted.AddListener(Interact);
+        }
+    
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void FixedUpdate()
@@ -30,5 +35,4 @@ public class TileInteract : MonoBehaviour // Rename to "Tile" class
     {
         this.gameObject.GetComponent<Renderer>().material = Materials[1];
     }
-
 }

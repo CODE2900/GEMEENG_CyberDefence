@@ -18,15 +18,13 @@ public class Player : Unit
     }
 
 
-    private void OnTriggerEnter(Collider other) //If trigger an empty platform
-    {
-        if (this.collider != null)
-        {
-            if (other.gameObject.GetComponent<TileInteract>() != null)
-            {
-                other.gameObject.GetComponent<TileInteract>().InteractedTile.Invoke();
-            }
-        }
-    }
+    //private void OnTriggerEnter(Collider other) //If trigger an empty platform
+    //{
+    //    if (this.collider != null)
+    //    {
+    //        other.gameObject.GetComponent<Interactable>().InvokeInteract();
+           
+    //    }
+    //}
    
 }

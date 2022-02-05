@@ -15,7 +15,7 @@ public class Interactable : MonoBehaviour
     public UnityEvent EvtInteracted = new UnityEvent();
     //public UnityAction Interacted;
 
-    public void Interact()
+    public void InvokeInteract()
     {
         EvtInteracted.Invoke();
         //Interacted.Invoke(); 

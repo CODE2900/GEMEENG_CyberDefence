@@ -42,8 +42,10 @@ public class PlayerCamera : MonoBehaviour
 
             if (hit.collider.gameObject.GetComponent<Interactable>() != null)
             {
-                hit.collider.gameObject.GetComponent<Interactable>().Interact();
+                hit.collider.gameObject.GetComponent<Interactable>().InvokeInteract();
             }
+            
+            
         }
         #endregion
     }
