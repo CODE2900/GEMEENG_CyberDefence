@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4636178258068680581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3469299996452292699}
+  - component: {fileID: 6553625840065331226}
+  - component: {fileID: 1724943247540119003}
+  m_Layer: 0
+  m_Name: TowerTargeting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3469299996452292699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636178258068680581}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7894262480005363165}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6553625840065331226
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636178258068680581}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.55
+  m_Center: {x: 0, y: 0.58, z: 0}
+--- !u!114 &1724943247540119003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636178258068680581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a3c3f07241f9748be0e2914e8c54d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
+  turret: {fileID: 4898044401100269953}
 --- !u!1 &7897092938845357555
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7894607178518761761}
+  - component: {fileID: 9216627266240761223}
   m_Layer: 0
   m_Name: GatelingGun_L3_GunBody
   m_TagString: Untagged
@@ -424,7 +485,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7897298888237973203}
-  m_LocalRotation: {x: -0, y: -0.04540074, z: -0, w: 0.99896884}
+  m_LocalRotation: {x: -0, y: -0.11586783, z: -0, w: 0.9932647}
   m_LocalPosition: {x: 0, y: 0.37399998, z: -0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -436,7 +497,20 @@ Transform:
   - {fileID: 7895217803030934355}
   m_Father: {fileID: 7894597186621401389}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: -5.204, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -13.307, z: 0}
+--- !u!114 &9216627266240761223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897298888237973203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7215500b74232a64a8243ef10a508610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TowerTargets: {fileID: 1724943247540119003}
 --- !u!1 &7897299479130386241
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +605,7 @@ GameObject:
   - component: {fileID: 7894262480005363165}
   - component: {fileID: 7817194470237552413}
   - component: {fileID: 8017729971497956637}
-  - component: {fileID: 7894262480005363164}
+  - component: {fileID: 4898044401100269953}
   m_Layer: 0
   m_Name: GatelingGun_Turret
   m_TagString: Untagged
@@ -552,6 +626,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7894885475835941835}
+  - {fileID: 3469299996452292699}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -607,7 +682,7 @@ LODGroup:
     - renderer: {fileID: 7911794196875544719}
     - renderer: {fileID: 7911172196849973915}
   m_Enabled: 1
---- !u!114 &7894262480005363164
+--- !u!114 &4898044401100269953
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -616,15 +691,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 7897360142860677177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc83f0f7d2d029047b5784076d5ef474, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fe665d3a24335d4db4e26978b3b59f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 
+  unitName: 
   name: 
   fireRate: 0
   projectile: {fileID: 0}
-  turretHead: {fileID: 7897654207562012371}
+  turretHead: {fileID: 0}
   recoil: 0
   spread: 0
+  targeting: {fileID: 0}
 --- !u!1 &7897633406847090501
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +878,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7895019541102658157}
-  - component: {fileID: 7897654207562012370}
   m_Layer: 0
   m_Name: GatelingGun_L3_BaseRotation
   m_TagString: Untagged
@@ -827,19 +904,6 @@ Transform:
   m_Father: {fileID: 7894885475835941835}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 1.293, z: 0}
---- !u!114 &7897654207562012370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7897654207562012371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4a3c3f07241f9748be0e2914e8c54d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!1 &7897681659590271647
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +1004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7895217803030934355
 Transform:
   m_ObjectHideFlags: 0
@@ -953,8 +1017,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7894958403158007895}
   - {fileID: 7894686210414055371}
+  - {fileID: 7894958403158007895}
   m_Father: {fileID: 7894607178518761761}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10936,7 +11000,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7895217803030934355}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -40.179, y: -90.00001, z: 90.00001}
 --- !u!198 &8024910697869722033
 ParticleSystem:
@@ -15844,7 +15908,7 @@ Transform:
   m_Children:
   - {fileID: 7895131350982564493}
   m_Father: {fileID: 7895217803030934355}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &8025074654270179541
 ParticleSystem:

@@ -8,7 +8,7 @@ enum firingMode
     FiringMode
 }
 
-public class Turret : MonoBehaviour
+public class Turret : Unit
 {
     public string name;
     public float fireRate;
@@ -17,7 +17,10 @@ public class Turret : MonoBehaviour
     public float recoil;
     public float spread;
     float damage;
-    //public Skill[] turretSkills;
+
+    
+    [Header("Targets")]
+    public TowerTargeting targeting;
 
     // Start is called before the first frame update
     void Start()

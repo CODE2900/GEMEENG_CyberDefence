@@ -8,6 +8,8 @@ public class Tile : MonoBehaviour
 
     public Interactable Interactable;
 
+    public GameObject[] GhostTurret;
+
     [SerializeField] bool isEmpty = true;
 
     // Start is called before the first frame update
@@ -33,6 +35,7 @@ public class Tile : MonoBehaviour
 
     public void Interact()
     {
+        //spawn ghost tower
         this.gameObject.GetComponent<Renderer>().material = Materials[1];
     }
 }
