@@ -14,12 +14,20 @@ public class LookTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private void FixedUpdate()
+    {
         if (TowerTargets.targets != null)
         {
             LookAtTarget(TowerTargets.targets[0].transform);
         }
+        else
+        {
+            Debug.Log("No Target");
+        }
+      
     }
-
     public void LookAtTarget(Transform turretTarget)
     {
         this.transform.LookAt(turretTarget);

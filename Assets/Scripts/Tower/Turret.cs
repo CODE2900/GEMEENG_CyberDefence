@@ -12,7 +12,7 @@ public class Turret : Unit
 {
     public string name;
     public float fireRate;
-    public GameObject projectile;
+    public GameObject projectile; 
     public GameObject turretHead;
     public float recoil;
     public float spread;
@@ -20,7 +20,8 @@ public class Turret : Unit
 
     
     [Header("Targets")]
-    public TowerTargeting targeting;
+    public TowerTargeting Targeting;
+    public Transform FirePoint;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +35,21 @@ public class Turret : Unit
       
     }
 
+    public void Shoot()
+    {
+        if(projectile != null)
+        {
+            if(Targeting.targets[0] != null)
+            {
+                Instantiate(projectile, FirePoint.transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Debug.Log("No Targets");
+                return;
+            }
+           
+        }
+    }
    
 }

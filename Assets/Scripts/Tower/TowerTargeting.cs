@@ -20,20 +20,22 @@ public class TowerTargeting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (targets != null)
-        {
-            LookAtTarget(targets[0].transform);
-        }
+        //if (targets[0] != null)
+        //{
+        //    LookAtTarget(targets[0].transform);
+        //}
     }
 
-    public void LookAtTarget(Transform turretTarget)
-    {
-        this.transform.LookAt(turretTarget);
-    }
+    //public void LookAtTarget(Transform turretTarget)
+    //{
+    //    this.transform.LookAt(turretTarget);
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<Player>() !=null)
+        //targets.Add(other.gameObject);
+
+        if (other.gameObject.GetComponentInParent<Player>() != null)
         {
             targets.Add(other.gameObject);
         }

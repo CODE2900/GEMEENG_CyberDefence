@@ -44,7 +44,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.55
+  m_Radius: 3.5
   m_Center: {x: 0, y: 0.58, z: 0}
 --- !u!114 &1724943247540119003
 MonoBehaviour:
@@ -702,7 +702,8 @@ MonoBehaviour:
   turretHead: {fileID: 0}
   recoil: 0
   spread: 0
-  targeting: {fileID: 0}
+  Targeting: {fileID: 0}
+  FirePoint: {fileID: 0}
 --- !u!1 &7897633406847090501
 GameObject:
   m_ObjectHideFlags: 0
