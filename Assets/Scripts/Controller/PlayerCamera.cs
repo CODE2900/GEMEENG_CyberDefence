@@ -38,7 +38,7 @@ public class PlayerCamera : MonoBehaviour
         if (Physics.Raycast(this.transform.position, forward, out hit, 10))
         {
             Debug.DrawRay(this.transform.position, forward, Color.green);
-            Debug.Log(hit.collider.gameObject.name);
+           // Debug.Log(hit.collider.gameObject.name);
 
             if (hit.collider.gameObject.GetComponent<Interactable>() != null)
             {

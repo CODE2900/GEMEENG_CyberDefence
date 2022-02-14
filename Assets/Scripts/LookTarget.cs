@@ -18,9 +18,9 @@ public class LookTarget : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (TowerTargets.targets != null)
+        if (TowerTargets.target != null)
         {
-            LookAtTarget(TowerTargets.targets[0].transform);
+            LookAtTarget(TowerTargets.target.transform);
         }
         else
         {

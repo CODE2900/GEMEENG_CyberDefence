@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class TowerTargeting : MonoBehaviour
 {
-    public List<GameObject> targets;
+    // List<GameObject> targets;
+    public GameObject target;
     public Turret turret;
     //public Collider collider;
 
     // Start is called before the first frame update
     void Start()
     {
-        //if(this.gameObject.GetComponent<Collider>() != null)
-        //{
-        //    collider = this.gameObject.GetComponent<Collider>();
-        //}
+        
     }
 
     // Update is called once per frame
@@ -35,16 +33,18 @@ public class TowerTargeting : MonoBehaviour
     {
         //targets.Add(other.gameObject);
 
-        if (other.gameObject.GetComponentInParent<Player>() != null)
-        {
-            targets.Add(other.gameObject);
-        }
+        //if (other.gameObject.GetComponentInParent<Player>() != null)
+        //{
+        //    targets.Add(other.gameObject);
+        //}
+        target = other.transform.parent.gameObject;
 
     }
 
     private void OnTriggerExit(Collider other)
     {
-        targets.Remove(other.gameObject);
+        //targets.Remove(other.gameObject);
+        target = null;
     }
 
 }

@@ -23,33 +23,43 @@ public class Turret : Unit
     public TowerTargeting Targeting;
     public Transform FirePoint;
 
+    public float fireTime = 10.0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+       // StartCoroutine(Firing());
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+        
+    }
+
+    private void FixedUpdate()
+    {
+        if(Targeting.target == true)
+        {
+            Shoot();
+        }
     }
 
     public void Shoot()
     {
-        if(projectile != null)
+        if (fireTime <= 0)
         {
-            if(Targeting.targets[0] != null)
-            {
-                Instantiate(projectile, FirePoint.transform.position, Quaternion.identity);
-            }
-            else
-            {
-                Debug.Log("No Targets");
-                return;
-            }
-           
+            Debug.Log("Turret Shooting");
+            Targeting.target.GetComponentInParent<HealthComponent>().onHit.Invoke(10);
+            fireTime = 10.0f;
         }
+        else
+        {
+            fireTime -= Time.deltaTime;
+        }
+
+       
     }
+
    
 }

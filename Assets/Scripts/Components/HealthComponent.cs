@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthComponent : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class HealthComponent : MonoBehaviour
     public float CurrentHP { get { return currentHP; } }
     [SerializeField]
     float maxHP;
-    public float MaxHP { get { return maxHP; } set { } }   
+    public float MaxHP { get { return maxHP; } set { } }
 
+    public UnityEvent<float> onHit;
     // Start is called before the first frame update
     void Start()
     {
         currentHP = maxHP;
+
+        onHit.AddListener(TakeDamage);
     }
 
     public void TakeDamage(float damage)
