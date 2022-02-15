@@ -5,7 +5,8 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     public string Id;
-    public string unitName; 
+    public string unitName;
+    public float AttackRange = 100f;
 
     // Start is called before the first frame update
     void Start()

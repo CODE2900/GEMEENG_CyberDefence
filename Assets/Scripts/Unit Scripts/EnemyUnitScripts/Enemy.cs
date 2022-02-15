@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy : Unit
 {
     public float damage = 1;
-    public float range = 100f;
     public GameObject firePoint;
     
     // Start is called before the first frame update
@@ -48,7 +47,7 @@ public class Enemy : Unit
     public void ShootTarget()
     {
         RaycastHit hit;
-        if(Physics.Raycast(firePoint.transform.position, firePoint.transform.forward, out hit, range))
+        if(Physics.Raycast(firePoint.transform.position, firePoint.transform.forward, out hit, AttackRange))
         {
             Debug.Log("Object Hit: " + hit.transform.name);
         }

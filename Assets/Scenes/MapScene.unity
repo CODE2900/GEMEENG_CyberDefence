@@ -1430,21 +1430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 0}
   spawnPoint: {fileID: 1594062855}
-  waypoints:
-  - {fileID: 1431128980}
-  - {fileID: 962882593}
-  - {fileID: 1450238419}
-  - {fileID: 1648627277}
-  - {fileID: 946505212}
-  - {fileID: 10353856}
-  - {fileID: 2119781173}
-  - {fileID: 1823922244}
-  - {fileID: 1128230409}
-  - {fileID: 623604268}
-  - {fileID: 476173204}
-  - {fileID: 929237170}
-  - {fileID: 1336228586}
-  - {fileID: 1413293383}
+  Destination: {fileID: 0}
   numOfEnemiesToSpawn: 0
 --- !u!23 &1306281140
 MeshRenderer:
@@ -1672,6 +1658,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   maxHP: 10
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1413293387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,6 +1675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: building-base-1
   unitName: Main Base
+  AttackRange: 100
 --- !u!54 &1413293388
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2208,6 +2198,7 @@ GameObject:
   - component: {fileID: 1741445136}
   - component: {fileID: 1741445135}
   - component: {fileID: 1741445134}
+  - component: {fileID: 1741445137}
   m_Layer: 0
   m_Name: Player 2.0
   m_TagString: Untagged
@@ -2263,6 +2254,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1741445137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741445133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3e816d37b999b459d41ddbe276fea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  unitName: 
+  AttackRange: 100
 --- !u!1 &1823922244
 GameObject:
   m_ObjectHideFlags: 0

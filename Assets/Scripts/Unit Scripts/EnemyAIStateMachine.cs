@@ -22,10 +22,20 @@ public class EnemyAIStateMachine : StateMachineBehaviour
         if (target)
         {
             animator.SetBool("hasTarget", true);
+            if (IsTargetInRange())
+            {
+                animator.SetBool("isAttacking", true);
+            }
+            else if (!IsTargetInRange())
+            {
+                animator.SetBool("isChasing", true);
+            }
         }
         else
         {
+            animator.SetBool("isAttacking", false);
             animator.SetBool("hasTarget", false);
+            animator.SetBool("isChasing", false);
             animator.SetBool("isPatrolling", true);
         }
         //if (unit.GetComponent<AIMovement>().IsLastWaypoint())
@@ -49,27 +59,18 @@ public class EnemyAIStateMachine : StateMachineBehaviour
 
     }
 
-    // OnStateMove is called before OnStateMove is called on any state inside this state machine
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
-
-    // OnStateIK is called before OnStateIK is called on any state inside this state machine
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
-
-    // OnStateMachineEnter is called when entering a state machine via its Entry Node
-    //override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
-    //{
-    //    
-    //}
-
-    // OnStateMachineExit is called when exiting a state machine via its Exit Node
-    //override public void OnStateMachineExit(Animator animator, int stateMachinePathHash)
-    //{
-    //    
-    //}
+    bool IsTargetInRange()
+    {
+        float distanceToTarget = Vector3.Distance(unit.transform.position, target.transform.position);
+        Debug.Log("Distance to Target: " + distanceToTarget);
+        if(distanceToTarget <= unit.GetComponent<Unit>().AttackRange)
+        { 
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+   
 }
