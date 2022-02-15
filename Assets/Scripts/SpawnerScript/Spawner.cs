@@ -7,8 +7,9 @@ public class Spawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
     [SerializeField]
-    Transform spawnPoint; 
-    public List<GameObject> waypoints = new List<GameObject>();
+    Transform spawnPoint;
+    //  public List<GameObject> waypoints = new List<GameObject>();
+    public Transform Destination;
     public int numOfEnemiesToSpawn = 1;
 
     public Coroutine spawnEnemiesRoutine;
@@ -33,9 +34,10 @@ public class Spawner : MonoBehaviour
             //{
                 Assert.IsNotNull(enemyPrefab, "Enemy prefab should not be null or empty");
                 GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-                spawnedEnemy.GetComponent<AIMovement>().waypoints = waypoints;
-            //}
-            
+                //spawnedEnemy.GetComponent<AIMovement>().waypoints = waypoints;
+                spawnedEnemy.GetComponent<NavMesh_AI>().waypoint = Destination;
+        //}
+
         //}
     }
 
