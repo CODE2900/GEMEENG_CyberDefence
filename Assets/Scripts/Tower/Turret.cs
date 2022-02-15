@@ -23,7 +23,7 @@ public class Turret : Unit
     public TowerTargeting Targeting;
     public Transform FirePoint;
 
-    public float fireTime = 10.0f;
+    [SerializeField] private float fireTime = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +43,10 @@ public class Turret : Unit
         {
             Shoot();
         }
+        else
+        {
+            fireTime = 1.5f;
+        }
     }
 
     public void Shoot()
@@ -51,7 +55,7 @@ public class Turret : Unit
         {
             Debug.Log("Turret Shooting");
             Targeting.target.GetComponentInParent<HealthComponent>().onHit.Invoke(10);
-            fireTime = 10.0f;
+            fireTime = 1.5f;
         }
         else
         {
