@@ -520,6 +520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GatelingGun_Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 9216627266240761223, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: RotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
 --- !u!1 &1003064762

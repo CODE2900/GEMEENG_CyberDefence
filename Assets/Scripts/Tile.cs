@@ -9,6 +9,7 @@ public class Tile : MonoBehaviour
     public Interactable Interactable;
 
     public GameObject[] GhostTurret;
+    public GameObject Turret;
 
     [SerializeField] bool isEmpty = true;
 
@@ -30,14 +31,27 @@ public class Tile : MonoBehaviour
 
     public void FixedUpdate()
     {
-        this.gameObject.GetComponent<Renderer>().material = Materials[0];
-        GhostTurret[0].SetActive(false);
+        if(isEmpty)
+        {
+            this.gameObject.GetComponent<Renderer>().material = Materials[0];
+            GhostTurret[0].SetActive(false);
+        }
+        
     }
 
     public void Interact()
     {
         //spawn ghost tower
-        this.gameObject.GetComponent<Renderer>().material = Materials[1];
-        GhostTurret[0].SetActive(true);
+        if (isEmpty)
+        {
+            this.gameObject.GetComponent<Renderer>().material = Materials[1];
+            GhostTurret[0].SetActive(true);
+        }
+       
+
+        //if(Input.GetKeyDown(KeyCode.E))
+        //{
+        //    Turret.SetActive(true);
+        //}
     }
 }

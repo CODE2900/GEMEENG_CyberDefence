@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a3c3f07241f9748be0e2914e8c54d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets: []
+  target: {fileID: 0}
   turret: {fileID: 4898044401100269953}
 --- !u!1 &7897092938845357555
 GameObject:
@@ -511,6 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TowerTargets: {fileID: 1724943247540119003}
+  RotationSpeed: 0
 --- !u!1 &7897299479130386241
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +705,7 @@ MonoBehaviour:
   spread: 0
   Targeting: {fileID: 0}
   FirePoint: {fileID: 0}
+  fireTime: 1.5
 --- !u!1 &7897633406847090501
 GameObject:
   m_ObjectHideFlags: 0
