@@ -36,6 +36,10 @@ public class Tile : MonoBehaviour
             this.gameObject.GetComponent<Renderer>().material = Materials[0];
             GhostTurret[0].SetActive(false);
         }
+        else
+        {
+            this.gameObject.GetComponent<Renderer>().material = Materials[2];
+        }
         
     }
 
@@ -47,11 +51,27 @@ public class Tile : MonoBehaviour
             this.gameObject.GetComponent<Renderer>().material = Materials[1];
             GhostTurret[0].SetActive(true);
         }
-       
+        else
+        {
+            this.gameObject.GetComponent<Renderer>().material = Materials[1];
+        }
 
-        //if(Input.GetKeyDown(KeyCode.E))
-        //{
-        //    Turret.SetActive(true);
-        //}
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(isEmpty)
+            {
+                GhostTurret[0].SetActive(false);
+                Turret.SetActive(true);
+                isEmpty = false;
+            }
+            else if(!isEmpty)
+            {
+                Debug.Log("There's a Turret");
+                Turret.SetActive(false);
+                isEmpty = true;
+            }
+            
+        }
     }
 }

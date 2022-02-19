@@ -436,42 +436,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2865867731645624604, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 88913548}
-    - target: {fileID: 3469299996452292699, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3469299996452292699, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3469299996452292699, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898044401100269953, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: fireTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4898044401100269953, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: Targeting
-      value: 
-      objectReference: {fileID: 1541166129}
-    - target: {fileID: 4898044401100269953, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: targeting
-      value: 
-      objectReference: {fileID: 1541166129}
     - target: {fileID: 4898044401100269953, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 1122283453}
-    - target: {fileID: 6553625840065331226, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -519,10 +487,6 @@ PrefabInstance:
     - target: {fileID: 7897360142860677177, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_Name
       value: GatelingGun_Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 9216627266240761223, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: RotationSpeed
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
@@ -835,17 +799,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236240020}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1541166129 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1724943247540119003, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-  m_PrefabInstance: {fileID: 977465969}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4a3c3f07241f9748be0e2914e8c54d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1661342908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,6 +1288,22 @@ PrefabInstance:
     - target: {fileID: 109925647846557926, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}
       propertyPath: m_Name
       value: Platform_Placeholder
+      objectReference: {fileID: 0}
+    - target: {fileID: 109925647846557932, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}
+      propertyPath: Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 109925647846557932, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}
+      propertyPath: Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b83111878c869e4b905abcaa12d719a, type: 2}
+    - target: {fileID: 109925647846557932, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}
+      propertyPath: Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f5c2a5ab9f3ce342873a82833739c54, type: 2}
+    - target: {fileID: 5812448330021617692, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}
