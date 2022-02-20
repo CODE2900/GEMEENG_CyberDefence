@@ -4,16 +4,34 @@ using UnityEngine;
 
 public class AttackState : StateMachineBehaviour
 {
+    public GameObject Unit;
+    public float AttackTimer;
+    public float AttackTime = 5; // Temporary for BAT 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        Unit = animator.gameObject.transform.parent.transform.parent.gameObject;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        //Targeting Targeting = Unit.GetComponent<Targeting>();
+        //if (Targeting.Target)
+        //{
+            
+        //    Unit.transform.LookAt(Targeting.Target.transform);
+        //}
+       
+        if(AttackTimer >= AttackTime)
+        { 
+            Unit.GetComponent<Enemy>().ShootTarget();
+            AttackTimer = 0;
+        }
+        else
+        {
+            AttackTimer += Time.deltaTime;
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

@@ -158,10 +158,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 
-  unitName: 
+  Name: 
   AttackRange: 5
-  damage: 1
-  firePoint: {fileID: 26307306774481213}
+  Damage: 2
+  FirePoint: {fileID: 26307306774481213}
 --- !u!65 &1142104800037875508
 BoxCollider:
   m_ObjectHideFlags: 0

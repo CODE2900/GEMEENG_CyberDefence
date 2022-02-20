@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Enemy : Unit
 {
-    public float damage = 1;
-    public GameObject firePoint;
-    
+    public GameObject FirePoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,18 +45,24 @@ public class Enemy : Unit
 
     public void ShootTarget()
     {
-        RaycastHit hit;
-        if(Physics.Raycast(firePoint.transform.position, firePoint.transform.forward, out hit, AttackRange))
+        Debug.Log("Shooting Target");
+        RaycastHit Hit;
+        Assert.IsNotNull(FirePoint, "There is no FirePoint set");
+        if (Physics.Raycast(FirePoint.transform.position, FirePoint.transform.forward, out Hit, AttackRange))
         {
-            Debug.Log("Object Hit: " + hit.transform.name);
-            MainBase MainBase = hit.transform.GetComponent<MainBase>();
-            if (MainBase)
+            Unit UnitHit = Hit.transform.gameObject.GetComponent<Unit>();
+            if (UnitHit)
             {
-                HealthComponent MainBaseHealth = MainBase.GetComponent<HealthComponent>();
-
+                HealthComponent UnitHitHealth = UnitHit.GetComponent<HealthComponent>();
+                if (UnitHitHealth)
+                {
+                    UnitHitHealth.TakeDamage(Damage);
+                }
             }
+            Debug.DrawRay(FirePoint.transform.position, FirePoint.transform.forward, Color.red, 2);
         }
-        
+
+
     }
 
 }

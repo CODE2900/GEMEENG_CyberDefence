@@ -32,14 +32,17 @@ public class HealthComponent : MonoBehaviour
 
     public void Death()
     {
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
+    }
+
+    public bool IsDead()
+    {
+        return currentHP <= 0;
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(1f);
-        }
+        
     }
 }

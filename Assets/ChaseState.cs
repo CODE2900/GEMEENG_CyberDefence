@@ -5,16 +5,16 @@ using UnityEngine.AI;
 
 public class ChaseState : StateMachineBehaviour
 {
-    public GameObject unit; 
+    public GameObject Unit; 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        unit = animator.gameObject.transform.parent.transform.parent.gameObject;
-        NavMeshAgent unitNavMesh = unit.GetComponent<NavMeshAgent>();
+        Unit = animator.gameObject.transform.parent.transform.parent.gameObject;
+        NavMeshAgent unitNavMesh = Unit.GetComponent<NavMeshAgent>();
         if (unitNavMesh)
         {
             Debug.Log("Unit has NavMesh");
-            Targeting unitTargeting = unit.GetComponent<Targeting>();
+            Targeting unitTargeting = Unit.GetComponent<Targeting>();
             if (unitTargeting)
             {
                 Debug.Log("Unit has targeting");
