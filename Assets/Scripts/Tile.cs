@@ -9,7 +9,7 @@ public class Tile : MonoBehaviour
     public Interactable Interactable;
 
     public GameObject[] GhostTurret;
-    public GameObject Turret;
+    public GameObject TurretTower;
 
     [SerializeField] bool isEmpty = true;
 
@@ -62,13 +62,13 @@ public class Tile : MonoBehaviour
             if(isEmpty)
             {
                 GhostTurret[0].SetActive(false);
-                Turret.SetActive(true);
+                TurretTower.SetActive(true);
                 isEmpty = false;
             }
             else if(!isEmpty)
             {
-                Debug.Log("There's a Turret");
-                Turret.SetActive(false);
+                Debug.Log("Turret Remove");
+                TurretTower.SetActive(false);
                 isEmpty = true;
             }
             

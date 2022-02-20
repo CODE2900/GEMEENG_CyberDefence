@@ -18,6 +18,7 @@ public class Turret : Unit
     public float spread;
     float damage;
 
+    public ParticleSystem ShootingParticle;
     
     [Header("Targets")]
     public TowerTargeting Targeting;
@@ -45,6 +46,7 @@ public class Turret : Unit
         }
         else
         {
+            ShootingParticle.Stop();
             fireTime = 1.5f;
         }
     }
@@ -56,6 +58,7 @@ public class Turret : Unit
             Debug.Log("Turret Shooting");
             Targeting.target.GetComponentInParent<HealthComponent>().onHit.Invoke(10);
             fireTime = 1.5f;
+            ShootingParticle.Play();
         }
         else
         {

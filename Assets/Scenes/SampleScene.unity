@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &64981549 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7477064148181053503, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}
+  m_PrefabInstance: {fileID: 109925647484425285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &88913548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,6 +1294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform_Placeholder
       objectReference: {fileID: 0}
+    - target: {fileID: 109925647846557932, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}
+      propertyPath: TurretTower
+      value: 
+      objectReference: {fileID: 64981549}
     - target: {fileID: 109925647846557932, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}
       propertyPath: Materials.Array.size
       value: 3

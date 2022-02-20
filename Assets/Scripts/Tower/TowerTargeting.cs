@@ -22,6 +22,15 @@ public class TowerTargeting : MonoBehaviour
         //{
         //    LookAtTarget(targets[0].transform);
         //}
+        if (target == null)
+        {
+            target = null;
+        }
+
+       if(!turret.isActiveAndEnabled)
+       {
+           target = null;
+       }
     }
 
     //public void LookAtTarget(Transform turretTarget)
@@ -37,9 +46,13 @@ public class TowerTargeting : MonoBehaviour
         //{
         //    targets.Add(other.gameObject);
         //}
-        target = other.transform.parent.gameObject;
-
+        if(other.gameObject.GetComponentInParent<Player>() != null)
+        {
+            target = other.transform.parent.gameObject;
+        }
+        
     }
+
 
     private void OnTriggerExit(Collider other)
     {

@@ -32,7 +32,8 @@ public class HealthComponent : MonoBehaviour
 
     public void Death()
     {
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
     // Update is called once per frame
     void Update()
