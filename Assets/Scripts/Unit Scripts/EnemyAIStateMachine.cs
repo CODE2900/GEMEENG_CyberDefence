@@ -22,12 +22,15 @@ public class EnemyAIStateMachine : StateMachineBehaviour
         if (target)
         {
             animator.SetBool("hasTarget", true);
+            animator.SetBool("isPatrolling", false);
             if (IsTargetInRange())
             {
+                animator.SetBool("isChasing", false);
                 animator.SetBool("isAttacking", true);
             }
             else if (!IsTargetInRange())
             {
+                animator.SetBool("isAttacking", false);
                 animator.SetBool("isChasing", true);
             }
         }
@@ -63,14 +66,7 @@ public class EnemyAIStateMachine : StateMachineBehaviour
     {
         float distanceToTarget = Vector3.Distance(unit.transform.position, target.transform.position);
         Debug.Log("Distance to Target: " + distanceToTarget);
-        if(distanceToTarget <= unit.GetComponent<Unit>().AttackRange)
-        { 
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return distanceToTarget <= unit.GetComponent<Unit>().AttackRange;
     }
    
 }

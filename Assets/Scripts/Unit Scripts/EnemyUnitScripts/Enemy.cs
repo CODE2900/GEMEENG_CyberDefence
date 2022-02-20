@@ -50,6 +50,12 @@ public class Enemy : Unit
         if(Physics.Raycast(firePoint.transform.position, firePoint.transform.forward, out hit, AttackRange))
         {
             Debug.Log("Object Hit: " + hit.transform.name);
+            MainBase MainBase = hit.transform.GetComponent<MainBase>();
+            if (MainBase)
+            {
+                HealthComponent MainBaseHealth = MainBase.GetComponent<HealthComponent>();
+
+            }
         }
         
     }

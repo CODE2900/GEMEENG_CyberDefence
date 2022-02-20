@@ -20,4 +20,9 @@ public class Targeting : MonoBehaviour
     {
         
     }
+
+    public void Shoot()
+    {
+
+    }
 }

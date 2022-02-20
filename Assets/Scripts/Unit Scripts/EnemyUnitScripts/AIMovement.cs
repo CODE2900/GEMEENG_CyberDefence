@@ -12,7 +12,6 @@ public class AIMovement : MonoBehaviour
     public float minDistanceToWaypoint = 0.1f;
     public float movementSpeed = 1f;
     public float rotationSpeed = 1f;
-    [SerializeField]
     Rigidbody rigidBody;
 
     private void Awake()
@@ -52,6 +51,18 @@ public class AIMovement : MonoBehaviour
         }
 
 
+    }
+
+    public void MoveToLocation(Transform TargetPosition)
+    {
+
+    }
+
+    public bool IsNearLocation(Transform TargetPosition)
+    {
+        float distance = Vector3.Distance(rigidBody.transform.position, TargetPosition.position);
+        //Debug.Log("Distance between enemy and waypoint: " + distance);
+        return distance <= minDistanceToWaypoint;
     }
     public bool IsEnemyNearWaypoint()
     {

@@ -513,6 +513,7 @@ GameObject:
   - component: {fileID: 563932765}
   - component: {fileID: 563932764}
   - component: {fileID: 563932763}
+  - component: {fileID: 563932769}
   m_Layer: 0
   m_Name: TowerTile
   m_TagString: Untagged
@@ -631,13 +632,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563932762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.977033, y: 4.450583, z: 5.859403}
+  m_LocalPosition: {x: 0.65, y: 1.13, z: 5.859403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &563932769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563932762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3e816d37b999b459d41ddbe276fea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  unitName: 
+  AttackRange: 100
 --- !u!1 &623604268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,7 +1948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1589443046
 Transform:
   m_ObjectHideFlags: 0
