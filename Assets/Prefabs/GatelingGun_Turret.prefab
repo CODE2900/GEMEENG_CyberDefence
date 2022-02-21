@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a3c3f07241f9748be0e2914e8c54d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  targets: []
   turret: {fileID: 4898044401100269953}
 --- !u!1 &7897092938845357555
 GameObject:
@@ -605,7 +605,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7894262480005363165}
-  - component: {fileID: 7817194470237552413}
   - component: {fileID: 8017729971497956637}
   - component: {fileID: 4898044401100269953}
   m_Layer: 0
@@ -632,19 +631,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &7817194470237552413
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7897360142860677177}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!205 &8017729971497956637
 LODGroup:
   m_ObjectHideFlags: 0
@@ -697,13 +683,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 
-  unitName: 
-  name: 
+  Name: 
+  AttackRange: 100
+  Damage: 10
+  name: Gatling Gun
   fireRate: 0
   projectile: {fileID: 0}
   turretHead: {fileID: 0}
   recoil: 0
   spread: 0
+  damage: 0
   ShootingParticle: {fileID: 8025247580012781975}
   Targeting: {fileID: 1724943247540119003}
   FirePoint: {fileID: 0}

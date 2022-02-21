@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     Transform spawnPoint;
     //  public List<GameObject> waypoints = new List<GameObject>();
     public Transform Destination;
-    public int numOfEnemiesToSpawn = 1;
+    public int numOfEnemiesToSpawn;
 
     public Coroutine spawnEnemiesRoutine;
     // Start is called before the first frame update

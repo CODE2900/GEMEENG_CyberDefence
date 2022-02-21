@@ -20,23 +20,13 @@ public class TowerTargeting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (targets[0] != null)
-        //{
-        //    LookAtTarget(targets[0].transform);
-        //}
-        if(targets.Count > 0)
-        {
-            if (targets[0] == null)
-            {
-                targets.Remove(targets[0].gameObject);
-            }
-        }
-       
 
-       //if(!turret.isActiveAndEnabled)
-       //{
-       //     targets.Clear();
-       //}
+        if (targets.Count > 0 && targets[0] == null)
+        {
+
+            targets.Remove(targets[0].gameObject);
+
+        }
     }
 
     //public void LookAtTarget(Transform turretTarget)
@@ -59,6 +49,10 @@ public class TowerTargeting : MonoBehaviour
         
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        
+    }
 
     private void OnTriggerExit(Collider other)
     {

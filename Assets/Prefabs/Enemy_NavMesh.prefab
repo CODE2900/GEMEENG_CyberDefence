@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 92236977760953869}
   - component: {fileID: 7016795242933044192}
   - component: {fileID: 6547819030564210960}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TargetDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
-  maxHP: 10
+  maxHP: 20
   OnHit:
     m_PersistentCalls:
       m_Calls: []

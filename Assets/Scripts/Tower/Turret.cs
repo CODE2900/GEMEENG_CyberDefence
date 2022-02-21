@@ -16,7 +16,7 @@ public class Turret : Unit
     public GameObject turretHead;
     public float recoil;
     public float spread;
-    float damage;
+    public float damage;
 
     public ParticleSystem ShootingParticle;
     
@@ -40,7 +40,7 @@ public class Turret : Unit
 
     private void FixedUpdate()
     {
-        if(Targeting.targets[0] != null)
+        if(Targeting.targets.Count > 0)
         {
             Shoot();
         }
@@ -56,9 +56,10 @@ public class Turret : Unit
         if (fireTime <= 0)
         {
             Debug.Log("Turret Shooting");
-            Targeting.targets[0].GetComponentInParent<HealthComponent>().OnHit.Invoke(10);
-            fireTime = 1.5f;
             ShootingParticle.Play();
+            Targeting.targets[0].GetComponentInParent<HealthComponent>().OnHit.Invoke(damage);
+            fireTime = 1.5f;
+            
         }
         else
         {
