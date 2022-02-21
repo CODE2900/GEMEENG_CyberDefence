@@ -56,7 +56,7 @@ public class Turret : Unit
         if (fireTime <= 0)
         {
             Debug.Log("Turret Shooting");
-            Targeting.targets[0].GetComponentInParent<HealthComponent>().onHit.Invoke(10);
+            Targeting.targets[0].GetComponentInParent<HealthComponent>().OnHit.Invoke(10);
             fireTime = 1.5f;
             ShootingParticle.Play();
         }

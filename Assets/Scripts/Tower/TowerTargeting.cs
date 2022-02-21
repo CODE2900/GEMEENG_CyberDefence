@@ -24,10 +24,14 @@ public class TowerTargeting : MonoBehaviour
         //{
         //    LookAtTarget(targets[0].transform);
         //}
-        if (targets[0] == null)
+        if(targets.Count > 0)
         {
-            targets.Remove(targets[0].gameObject);
+            if (targets[0] == null)
+            {
+                targets.Remove(targets[0].gameObject);
+            }
         }
+       
 
        //if(!turret.isActiveAndEnabled)
        //{

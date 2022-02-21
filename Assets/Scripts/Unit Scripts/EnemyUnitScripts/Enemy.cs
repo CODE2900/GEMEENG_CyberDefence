@@ -65,4 +65,8 @@ public class Enemy : Unit
 
     }
 
+    public override void OnDeath()
+    {
+        base.OnDeath();
+    }
 }

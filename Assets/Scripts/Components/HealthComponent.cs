@@ -12,13 +12,13 @@ public class HealthComponent : MonoBehaviour
     float maxHP;
     public float MaxHP { get { return maxHP; } set { } }
 
-    public UnityEvent<float> onHit;
+    public UnityEvent<float> OnHit;
     // Start is called before the first frame update
     void Start()
     {
         currentHP = maxHP;
 
-        onHit.AddListener(TakeDamage);
+        OnHit.AddListener(TakeDamage);
     }
 
     public void TakeDamage(float damage)

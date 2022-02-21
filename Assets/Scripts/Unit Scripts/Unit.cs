@@ -21,6 +21,11 @@ public class Unit : MonoBehaviour
         
     }
 
+    public virtual void OnDeath()
+    {
+
+    }
+
     //For Testing Attack State
     //public void Shoot()
     //{

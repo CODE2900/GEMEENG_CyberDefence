@@ -65,7 +65,7 @@ public class EnemyAIStateMachine : StateMachineBehaviour
     bool IsTargetInRange()
     {
         float distanceToTarget = Vector3.Distance(unit.transform.position, target.transform.position);
-        Debug.Log("Distance to Target: " + distanceToTarget);
+        //Debug.Log("Distance to Target: " + distanceToTarget);
         return distanceToTarget <= unit.GetComponent<Unit>().AttackRange;
     }
    
