@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 109925647846557933}
   - component: {fileID: 109925647846557932}
   m_Layer: 0
-  m_Name: Platform_Placeholder
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,10 +131,11 @@ MonoBehaviour:
   Materials:
   - {fileID: 2100000, guid: 0f5c2a5ab9f3ce342873a82833739c54, type: 2}
   - {fileID: 2100000, guid: 99442b5afbd86ed4aa5bf33d391e3ba3, type: 2}
+  - {fileID: 2100000, guid: 5b83111878c869e4b905abcaa12d719a, type: 2}
   Interactable: {fileID: 109925647846557933}
   GhostTurret:
   - {fileID: 8255577157225127255}
-  Turret: {fileID: 7477064148181053503}
+  TurretTower: {fileID: 7477064148181053503}
   isEmpty: 1
 --- !u!1 &8255208697895305775
 GameObject:
@@ -20934,6 +20935,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 109925647846557922}
     m_Modifications:
+    - target: {fileID: 6553625840065331226, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_Radius
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_RootOrder
       value: 1

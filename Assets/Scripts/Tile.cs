@@ -63,12 +63,14 @@ public class Tile : MonoBehaviour
             {
                 GhostTurret[0].SetActive(false);
                 TurretTower.SetActive(true);
+                TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
                 isEmpty = false;
             }
             else if(!isEmpty)
             {
                 Debug.Log("Turret Remove");
                 TurretTower.SetActive(false);
+                TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
                 isEmpty = true;
             }
             

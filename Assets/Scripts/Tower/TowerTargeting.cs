@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class TowerTargeting : MonoBehaviour
 {
-    // List<GameObject> targets;
-    public GameObject target;
-    public Turret turret;
+    public List<GameObject> targets;
+
     //public Collider collider;
 
-    // Start is called before the first frame update
+   // public GameObject target;
+    public Turret turret;
+
+   
     void Start()
     {
         
@@ -22,15 +24,15 @@ public class TowerTargeting : MonoBehaviour
         //{
         //    LookAtTarget(targets[0].transform);
         //}
-        if (target == null)
+        if (targets[0] == null)
         {
-            target = null;
+            targets.Remove(targets[0].gameObject);
         }
 
-       if(!turret.isActiveAndEnabled)
-       {
-           target = null;
-       }
+       //if(!turret.isActiveAndEnabled)
+       //{
+       //     targets.Clear();
+       //}
     }
 
     //public void LookAtTarget(Transform turretTarget)
@@ -40,24 +42,24 @@ public class TowerTargeting : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //targets.Add(other.gameObject);
-
-        //if (other.gameObject.GetComponentInParent<Player>() != null)
-        //{
-        //    targets.Add(other.gameObject);
-        //}
-        if(other.gameObject.GetComponentInParent<Player>() != null)
+        if(other.gameObject.GetComponentInParent<Enemy>() != null)
         {
-            target = other.transform.parent.gameObject;
+            targets.Add(other.transform.parent.gameObject);
         }
+   
+
+        //if(other.gameObject.GetComponentInParent<Enemy>() != null)
+        //{
+        //    target = other.transform.parent.gameObject;
+        //}
         
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-        //targets.Remove(other.gameObject);
-        target = null;
+        targets.Remove(other.gameObject);
+        //target = null;
     }
 
 }

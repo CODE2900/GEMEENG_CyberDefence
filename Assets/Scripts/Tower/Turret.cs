@@ -40,7 +40,7 @@ public class Turret : Unit
 
     private void FixedUpdate()
     {
-        if(Targeting.target == true)
+        if(Targeting.targets[0] != null)
         {
             Shoot();
         }
@@ -56,7 +56,7 @@ public class Turret : Unit
         if (fireTime <= 0)
         {
             Debug.Log("Turret Shooting");
-            Targeting.target.GetComponentInParent<HealthComponent>().onHit.Invoke(10);
+            Targeting.targets[0].GetComponentInParent<HealthComponent>().onHit.Invoke(10);
             fireTime = 1.5f;
             ShootingParticle.Play();
         }
