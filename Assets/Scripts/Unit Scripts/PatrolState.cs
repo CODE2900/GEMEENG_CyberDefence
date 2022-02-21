@@ -14,6 +14,10 @@ public class PatrolState : StateMachineBehaviour
         NavMesh_AI UnitAI = Unit.GetComponent<NavMesh_AI>();
         if (UnitAI)
         {
+            if (UnitAgent.isStopped)
+            {
+                UnitAgent.isStopped = false;
+            }
             UnitAgent.destination = UnitAI.waypoint.position;
         }
     }

@@ -16,7 +16,7 @@ public class TargetDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Unit unitCollided = other.GetComponent<Unit>();
+        MainBase unitCollided = other.GetComponent<MainBase>();
         if (unitCollided)
         {
             
@@ -29,7 +29,7 @@ public class TargetDetector : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Unit unitCollided = other.GetComponent<Unit>();
+        MainBase unitCollided = other.GetComponent<MainBase>();
         if (unitCollided == unit.GetComponent<Targeting>().Target)
         {
 

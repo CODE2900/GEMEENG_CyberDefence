@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Assertions;
 
 public class EnemyAIStateMachine : StateMachineBehaviour
 {
@@ -64,9 +66,13 @@ public class EnemyAIStateMachine : StateMachineBehaviour
 
     bool IsTargetInRange()
     {
-        float distanceToTarget = Vector3.Distance(unit.transform.position, target.transform.position);
-        //Debug.Log("Distance to Target: " + distanceToTarget);
-        return distanceToTarget <= unit.GetComponent<Unit>().AttackRange;
+        //float distanceToTarget = Vector3.Distance(unit.transform.position, target.transform.position);
+        ////Debug.Log("Distance to Target: " + distanceToTarget);
+        //return distanceToTarget <= unit.GetComponent<Unit>().AttackRange;
+        NavMeshAgent UnitNavMesh = unit.GetComponent<NavMeshAgent>();
+        Assert.IsNotNull(UnitNavMesh);
+        //Debug.Log("Distance to Target: " + UnitNavMesh.remainingDistance);
+        return UnitNavMesh.remainingDistance <= UnitNavMesh.stoppingDistance;
     }
    
 }

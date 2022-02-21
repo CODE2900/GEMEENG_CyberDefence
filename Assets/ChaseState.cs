@@ -10,15 +10,19 @@ public class ChaseState : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Unit = animator.gameObject.transform.parent.transform.parent.gameObject;
-        NavMeshAgent unitNavMesh = Unit.GetComponent<NavMeshAgent>();
-        if (unitNavMesh)
+        NavMeshAgent UnitNavMesh = Unit.GetComponent<NavMeshAgent>();
+        if (UnitNavMesh)
         {
             Debug.Log("Unit has NavMesh");
-            Targeting unitTargeting = Unit.GetComponent<Targeting>();
-            if (unitTargeting)
+            Targeting UnitTargeting = Unit.GetComponent<Targeting>();
+            if (UnitTargeting)
             {
                 Debug.Log("Unit has targeting");
-                unitNavMesh.destination = unitTargeting.Target.transform.gameObject.transform.position;
+                if (UnitNavMesh.isStopped)
+                {
+                    UnitNavMesh.isStopped = false;
+                }
+                UnitNavMesh.destination = UnitTargeting.Target.transform.gameObject.transform.position;
             }
 
         }

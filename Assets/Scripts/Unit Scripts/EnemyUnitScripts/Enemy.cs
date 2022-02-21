@@ -25,42 +25,54 @@ public class Enemy : Unit
 
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Unit unitCollided = collision.gameObject.GetComponent<Unit>();
-        if (unitCollided)
-        {
-            HealthComponent unitHealthComponent = unitCollided.gameObject.GetComponent<HealthComponent>();
-            if (unitHealthComponent)
-            {
-                unitHealthComponent.TakeDamage(1);
-                Destroy(this.gameObject);
-            }
-        }
-        else
-        {
-            Debug.Log("Not Unit collided");
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Unit unitCollided = collision.gameObject.GetComponent<Unit>();
+    //    if (unitCollided)
+    //    {
+    //        HealthComponent unitHealthComponent = unitCollided.gameObject.GetComponent<HealthComponent>();
+    //        if (unitHealthComponent)
+    //        {
+    //            unitHealthComponent.TakeDamage(1);
+    //            Destroy(this.gameObject);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Not Unit collided");
+    //    }
+    //}
 
     public void ShootTarget()
     {
         Debug.Log("Shooting Target");
         RaycastHit Hit;
         Assert.IsNotNull(FirePoint, "There is no FirePoint set");
-        if (Physics.Raycast(FirePoint.transform.position, FirePoint.transform.forward, out Hit, AttackRange))
+
+        Targeting Targeting = this.gameObject.GetComponent<Targeting>();
+        if (Targeting)
         {
-            Unit UnitHit = Hit.transform.gameObject.GetComponent<Unit>();
-            if (UnitHit)
+            HealthComponent TargetHealth = Targeting.Target.GetComponent<HealthComponent>();
+            if (TargetHealth)
             {
-                HealthComponent UnitHitHealth = UnitHit.GetComponent<HealthComponent>();
-                if (UnitHitHealth)
-                {
-                    UnitHitHealth.TakeDamage(Damage);
-                }
+                TargetHealth.OnHit.Invoke(Damage);
             }
-            Debug.DrawRay(FirePoint.transform.position, FirePoint.transform.forward, Color.red, 2);
         }
+        /*if (Physics.Raycast(FirePoint.transform.position, FirePoint.transform.forward, out Hit, AttackRange))
+        //{
+        //    Debug.Log("Hit: " + Hit.transform.name);
+        //    MainBase UnitHit = Hit.transform.gameObject.transform.parent.gameObject.GetComponent<MainBase>();
+        //    if (UnitHit)
+        //    {
+        //        HealthComponent UnitHitHealth = UnitHit.GetComponent<HealthComponent>();
+        //        if (UnitHitHealth)
+        //        {
+        //            UnitHitHealth.TakeDamage(Damage);
+        //            Debug.Log("Shooting Target: " + Hit.transform.gameObject.name);
+        //        }
+        //    }
+        //    Debug.DrawRay(FirePoint.transform.position, FirePoint.transform.forward, Color.red, 2);
+        //}*/
 
 
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AttackState : StateMachineBehaviour
 {
@@ -11,19 +12,30 @@ public class AttackState : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Unit = animator.gameObject.transform.parent.transform.parent.gameObject;
+        NavMeshAgent UnitAgent = Unit.GetComponent<NavMeshAgent>();
+        if (UnitAgent)
+        {
+            if (!UnitAgent.isStopped)
+            {
+                UnitAgent.isStopped = true;
+            }
+           
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //Targeting Targeting = Unit.GetComponent<Targeting>();
-        //if (Targeting.Target)
-        //{
-            
-        //    Unit.transform.LookAt(Targeting.Target.transform);
-        //}
-       
-        if(AttackTimer >= AttackTime)
+        Targeting Targeting = Unit.GetComponent<Targeting>();
+        if (Targeting.Target)
+        {
+            Vector3 LookTransform = Targeting.Target.transform.position;
+            LookTransform.x = Unit.transform.position.x;
+
+            Unit.transform.LookAt(LookTransform);
+        }
+
+        if (AttackTimer >= AttackTime)
         { 
             Unit.GetComponent<Enemy>().ShootTarget();
             AttackTimer = 0;
