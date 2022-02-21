@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 723038966285981590}
   - component: {fileID: 2162988954549184641}
   - component: {fileID: 3860553760991196451}
+  - component: {fileID: 8067295948574594902}
   m_Layer: 0
   m_Name: Enemy_NavMesh
   m_TagString: Untagged
@@ -158,10 +159,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 
-  Name: 
-  AttackRange: 5
-  Damage: 2
-  FirePoint: {fileID: 26307306774481213}
+  unitName: 
+  damage: 1
+  range: 50
+  firePoint: {fileID: 26307306774481213}
 --- !u!65 &1142104800037875508
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -203,7 +204,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 3
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -225,6 +226,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMesh: {fileID: 0}
   waypoint: {fileID: 0}
+--- !u!114 &8067295948574594902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298887397441308323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ffbef1a8373684d81687518b3edde6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 0
+  maxHP: 10
+  onHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7298887397510647246
 GameObject:
   m_ObjectHideFlags: 0

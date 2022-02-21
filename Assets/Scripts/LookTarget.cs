@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class LookTarget : MonoBehaviour
 {
+
+    [Header("Public Var")]
     public TowerTargeting TowerTargets;
+    public int RotationSpeed;
+
+    [Header("Tansform")]
+    Vector3 relativePosition;
+    Quaternion targetRotation;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +27,9 @@ public class LookTarget : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (TowerTargets.target != null)
+        if (TowerTargets.targets != null)
         {
-            LookAtTarget(TowerTargets.target.transform);
+            LookAtTarget(TowerTargets.targets[0].transform);
         }
         else
         {
@@ -30,7 +39,11 @@ public class LookTarget : MonoBehaviour
     }
     public void LookAtTarget(Transform turretTarget)
     {
-        this.transform.LookAt(turretTarget);
+        relativePosition = turretTarget.position - this.transform.position;
+        targetRotation = Quaternion.LookRotation(relativePosition);
+
+        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, targetRotation, Time.deltaTime * RotationSpeed);
+        //this.transform.LookAt(turretTarget);
     }
 
 }

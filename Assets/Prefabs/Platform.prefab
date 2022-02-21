@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 109925647846557933}
   - component: {fileID: 109925647846557932}
   m_Layer: 0
-  m_Name: Platform_Placeholder
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8252478513854781619}
+  - {fileID: 7481847774754108891}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -130,9 +131,11 @@ MonoBehaviour:
   Materials:
   - {fileID: 2100000, guid: 0f5c2a5ab9f3ce342873a82833739c54, type: 2}
   - {fileID: 2100000, guid: 99442b5afbd86ed4aa5bf33d391e3ba3, type: 2}
+  - {fileID: 2100000, guid: 5b83111878c869e4b905abcaa12d719a, type: 2}
   Interactable: {fileID: 109925647846557933}
   GhostTurret:
   - {fileID: 8255577157225127255}
+  TurretTower: {fileID: 7477064148181053503}
   isEmpty: 1
 --- !u!1 &8255208697895305775
 GameObject:
@@ -665,7 +668,7 @@ GameObject:
   - component: {fileID: 8252478513854781619}
   - component: {fileID: 8091858537200818291}
   m_Layer: 0
-  m_Name: GatelingGun_Turret
+  m_Name: GatelingGun_Turret_Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -679,7 +682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8255577157225127255}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07413547, y: 0.5, z: 0.086}
+  m_LocalPosition: {x: -0.028, y: 0.5, z: 0.086}
   m_LocalScale: {x: 0.33333334, y: 10, z: 0.33333334}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20925,3 +20928,102 @@ Transform:
   m_Father: {fileID: 8252478513854781619}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &746138552679137286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 109925647846557922}
+    m_Modifications:
+    - target: {fileID: 6553625840065331226, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_Radius
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897360142860677177, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_Name
+      value: GatelingGun_Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 7897360142860677177, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024910697869722033, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025247580012781975, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025247580012781975, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: lengthInSec
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+--- !u!1 &7477064148181053503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7897360142860677177, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+  m_PrefabInstance: {fileID: 746138552679137286}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7481847774754108891 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+  m_PrefabInstance: {fileID: 746138552679137286}
+  m_PrefabAsset: {fileID: 0}

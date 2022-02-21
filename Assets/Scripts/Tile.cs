@@ -9,6 +9,7 @@ public class Tile : MonoBehaviour
     public Interactable Interactable;
 
     public GameObject[] GhostTurret;
+    public GameObject TurretTower;
 
     [SerializeField] bool isEmpty = true;
 
@@ -30,14 +31,49 @@ public class Tile : MonoBehaviour
 
     public void FixedUpdate()
     {
-        this.gameObject.GetComponent<Renderer>().material = Materials[0];
-        GhostTurret[0].SetActive(false);
+        if(isEmpty)
+        {
+            this.gameObject.GetComponent<Renderer>().material = Materials[0];
+            GhostTurret[0].SetActive(false);
+        }
+        else
+        {
+            this.gameObject.GetComponent<Renderer>().material = Materials[2];
+        }
+        
     }
 
     public void Interact()
     {
         //spawn ghost tower
-        this.gameObject.GetComponent<Renderer>().material = Materials[1];
-        GhostTurret[0].SetActive(true);
+        if (isEmpty)
+        {
+            this.gameObject.GetComponent<Renderer>().material = Materials[1];
+            GhostTurret[0].SetActive(true);
+        }
+        else
+        {
+            this.gameObject.GetComponent<Renderer>().material = Materials[1];
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(isEmpty)
+            {
+                GhostTurret[0].SetActive(false);
+                TurretTower.SetActive(true);
+                TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
+                isEmpty = false;
+            }
+            else if(!isEmpty)
+            {
+                Debug.Log("Turret Remove");
+                TurretTower.SetActive(false);
+                TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
+                isEmpty = true;
+            }
+            
+        }
     }
 }
