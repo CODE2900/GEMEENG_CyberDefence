@@ -58,7 +58,7 @@ public class Turret : Unit
             Debug.Log("Turret Shooting");
             ShootingParticle.Play();
             Targeting.targets[0].GetComponentInParent<HealthComponent>().OnHit.Invoke(damage);
-            fireTime = 1.5f;
+            fireTime = fireRate;
             
         }
         else

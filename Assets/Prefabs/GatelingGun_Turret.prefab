@@ -685,9 +685,9 @@ MonoBehaviour:
   Id: 
   Name: 
   AttackRange: 100
-  Damage: 10
+  Damage: 20
   name: Gatling Gun
-  fireRate: 0
+  fireRate: 0.5
   projectile: {fileID: 0}
   turretHead: {fileID: 0}
   recoil: 0

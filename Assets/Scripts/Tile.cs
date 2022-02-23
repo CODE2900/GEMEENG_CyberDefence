@@ -11,27 +11,21 @@ public class Tile : MonoBehaviour
     public GameObject[] GhostTurret;
     public GameObject TurretTower;
 
-    [SerializeField] bool isEmpty = true;
+    bool isEmpty = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(Interactable != null)
+        if (Interactable != null)
         {
             Interactable.EvtInteracted.AddListener(Interact);
         }
-    
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 
     public void FixedUpdate()
     {
-        if(isEmpty)
+        if (isEmpty)
         {
             this.gameObject.GetComponent<Renderer>().material = Materials[0];
             GhostTurret[0].SetActive(false);
@@ -40,7 +34,7 @@ public class Tile : MonoBehaviour
         {
             this.gameObject.GetComponent<Renderer>().material = Materials[2];
         }
-        
+
     }
 
     public void Interact()

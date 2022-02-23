@@ -12,7 +12,8 @@ public class HealthComponent : MonoBehaviour
     float maxHP;
     public float MaxHP { get { return maxHP; } set { } }
 
-    public UnityEvent<float> OnHit;
+    public UnityEvent<float> OnHit = new UnityEvent<float>();
+    public UnityEvent OnDeath = new();
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,7 @@ public class HealthComponent : MonoBehaviour
     public void Death()
     {
         //this.gameObject.SetActive(false);
+        OnDeath.Invoke();
         Destroy(this.gameObject);
     }
 
