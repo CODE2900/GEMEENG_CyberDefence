@@ -36,9 +36,9 @@ public class TowerTargeting : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponentInParent<Enemy>() != null)
+        if(other.gameObject.GetComponent<Enemy>() != null)
         {
-            targets.Add(other.transform.parent.gameObject);
+            targets.Add(other.transform.gameObject);
         }
    
 
@@ -56,7 +56,10 @@ public class TowerTargeting : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        targets.Remove(other.gameObject);
+        
+         targets.Remove(other.gameObject);
+        
+          
         //target = null;
     }
 
