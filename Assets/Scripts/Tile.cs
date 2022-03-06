@@ -9,14 +9,17 @@ public class Tile : MonoBehaviour
     public Interactable Interactable;
 
     public GameObject[] GhostTurret;
+    public int GhostTurretIndex;
     public GameObject TurretTower;
+    public GameObject EMPTower;
 
     [SerializeField] bool isEmpty = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(Interactable != null)
+        GhostTurretIndex = 0;
+        if (Interactable != null)
         {
             Interactable.EvtInteracted.AddListener(Interact);
         }
@@ -45,11 +48,30 @@ public class Tile : MonoBehaviour
 
     public void Interact()
     {
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if(GhostTurretIndex > GhostTurret.Length)
+            {
+                GhostTurretIndex = 0;
+            }
+            else
+            {
+                GhostTurretIndex++;
+            }
+        }
+
         //spawn ghost tower
-        if (isEmpty)
+        if (isEmpty && GhostTurretIndex == 0)
         {
             this.gameObject.GetComponent<Renderer>().material = Materials[1];
-            GhostTurret[0].SetActive(true);
+            GhostTurret[0].SetActive(true); 
+            GhostTurret[1].SetActive(false);
+        }
+        else if(isEmpty && GhostTurretIndex == 1)
+        {
+            this.gameObject.GetComponent<Renderer>().material = Materials[1];
+            GhostTurret[0].SetActive(false);
+            GhostTurret[1].SetActive(true);
         }
         else
         {
@@ -59,19 +81,36 @@ public class Tile : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(isEmpty)
+            if (isEmpty && GhostTurretIndex == 0)
             {
                 GhostTurret[0].SetActive(false);
                 TurretTower.SetActive(true);
                 TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
                 isEmpty = false;
             }
+            else if(isEmpty && GhostTurretIndex == 1)
+            {
+                GhostTurret[1].SetActive(false);
+                EMPTower.SetActive(true);
+                EMPTower.GetComponent<Turret>().Targeting.targets.Clear();
+                isEmpty = false;
+            }
             else if(!isEmpty)
             {
                 Debug.Log("Turret Remove");
-                TurretTower.SetActive(false);
-                TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
-                isEmpty = true;
+                if(TurretTower.activeInHierarchy)
+                {
+                    TurretTower.SetActive(false);
+                    TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
+                    isEmpty = true;
+                }
+                else if (EMPTower.activeInHierarchy)
+                {
+                    EMPTower.SetActive(false);
+                    EMPTower.GetComponent<Turret>().Targeting.targets.Clear();
+                    isEmpty = true;
+                }
+               
             }
             
         }
