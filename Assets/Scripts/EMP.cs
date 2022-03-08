@@ -5,21 +5,23 @@ using UnityEngine.AI;
 
 public class EMP : MonoBehaviour
 {
-    public List<GameObject> Enemies;
-    public int duration;
+    public int Duration;
+    public int SpeedDebuff;
+    public GameObject status;
 
 
+    //    public List<GameObject> Enemies;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        duration--;
-        if(duration <=0)
+        Duration--;
+        if (Duration <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -27,18 +29,13 @@ public class EMP : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<Enemy>())
+        if (other.gameObject.GetComponentInParent<Enemy>() /*&& !other.gameObject.GetComponentInParent<Enemy>().IsPoisoned*/)
         {
-            other.gameObject.GetComponent<NavMeshAgent>().speed = 0;
-
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.GetComponent<Enemy>())
-        {
-            other.gameObject.GetComponent<NavMeshAgent>().speed = 0;
+            GameObject stunStatusEffect = Instantiate(status);
+            stunStatusEffect.transform.parent = other.gameObject.transform;
+            stunStatusEffect.GetComponent<Stun>().targetUnit = other.gameObject;
+            stunStatusEffect.GetComponent<Stun>().ActivateStatusEffect(other.gameObject);
+            Debug.Log("Poison");
 
         }
     }
