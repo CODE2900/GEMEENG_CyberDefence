@@ -685,7 +685,6 @@ MonoBehaviour:
   Id: 
   Name: 
   AttackRange: 100
-  Damage: 20
   name: Gatling Gun
   fireRate: 0.5
   projectile: {fileID: 0}
@@ -694,6 +693,7 @@ MonoBehaviour:
   spread: 0
   damage: 0
   ShootingParticle: {fileID: 8025247580012781975}
+  status: {fileID: 0}
   Targeting: {fileID: 1724943247540119003}
   FirePoint: {fileID: 0}
   fireTime: 3
