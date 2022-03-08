@@ -19,11 +19,11 @@ public class Turret : Unit
     public float damage;
 
     public ParticleSystem ShootingParticle;
+    public GameObject status;
     
     [Header("Targets")]
     public TowerTargeting Targeting;
     public Transform FirePoint;
-
     [SerializeField] private float fireTime = 1.5f;
 
     // Start is called before the first frame update
@@ -55,11 +55,18 @@ public class Turret : Unit
     {
         if (fireTime <= 0)
         {
-            Debug.Log("Turret Shooting");
-            ShootingParticle.Play();
-            Targeting.targets[0].GetComponentInParent<HealthComponent>().OnHit.Invoke(damage);
-            fireTime = 1.5f;
-            
+            if(projectile == null)
+            {
+                Debug.Log("Turret Shooting");
+                ShootingParticle.Play();
+                Targeting.targets[0].GetComponentInParent<HealthComponent>().OnHit.Invoke(damage);
+                fireTime = 1.5f;
+            }
+            else
+            {
+                GameObject EMPBullet = Instantiate(projectile, FirePoint.transform.position, FirePoint.transform.rotation);
+                fireTime = 1.5f;
+            }
         }
         else
         {
@@ -69,5 +76,17 @@ public class Turret : Unit
        
     }
 
-   
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.GetComponentInParent<Enemy>() && status != null)
+    //    {
+    //        GameObject stunStatusEffect = Instantiate(status);
+    //        stunStatusEffect.transform.parent = other.gameObject.transform;
+    //        stunStatusEffect.GetComponent<Stun>().targetUnit = other.gameObject;
+    //        stunStatusEffect.GetComponent<Stun>().ActivateStatusEffect(other.gameObject);
+    //        Debug.Log("Stun");
+
+    //    }
+    //}
+
 }

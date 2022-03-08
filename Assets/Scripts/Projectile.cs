@@ -18,11 +18,12 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(0, 0, Time.deltaTime * ProjectileSpeed);
+        this.transform.Translate(Time.deltaTime * ProjectileSpeed, 0, 0);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Projectile Hit");
         Instantiate(EMP, this.transform.position, this.transform.rotation);
         Destroy(this.gameObject);
     }

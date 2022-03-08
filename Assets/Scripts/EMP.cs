@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EMP : MonoBehaviour
 {
-    public int Duration;
+    public float Duration;
     public int SpeedDebuff;
     public GameObject status;
 
@@ -20,7 +20,7 @@ public class EMP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Duration--;
+        Duration -= Time.deltaTime;
         if (Duration <= 0)
         {
             Destroy(this.gameObject);
@@ -35,7 +35,7 @@ public class EMP : MonoBehaviour
             stunStatusEffect.transform.parent = other.gameObject.transform;
             stunStatusEffect.GetComponent<Stun>().targetUnit = other.gameObject;
             stunStatusEffect.GetComponent<Stun>().ActivateStatusEffect(other.gameObject);
-            Debug.Log("Poison");
+            Debug.Log("Stun");
 
         }
     }

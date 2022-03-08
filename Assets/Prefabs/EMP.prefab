@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1022940037580203377}
   - component: {fileID: 1022940037580203390}
   - component: {fileID: 1022940037580203391}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1022940037580203388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.74, y: 0.57, z: 4.746319}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,6 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29bee6073e6373468679befe1012a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 0
+  Duration: 1.5
   SpeedDebuff: 0
   status: {fileID: 8381107514459473164, guid: ae4bc0cabf2d8674d84f796728e34608, type: 3}

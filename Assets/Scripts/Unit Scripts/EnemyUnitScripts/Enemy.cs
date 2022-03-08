@@ -6,6 +6,7 @@ using UnityEngine.Assertions;
 public class Enemy : Unit
 {
     public GameObject FirePoint;
+    public bool isStun;
     
     public void ShootTarget()
     {

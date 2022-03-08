@@ -14,17 +14,17 @@ public class StatusEffect : MonoBehaviour
 
     virtual public void ActivateStatusEffect(GameObject target, GameObject source = null)
     {
-        OnActiveBuff(target);
+        OnActiveStatusEffect(target);
     }
     virtual public void DeactivateStatusEffect(GameObject target, GameObject source = null)
     {
-        OnDeactiveBuff(target);
+        OnDeactiveStatusEffect(target);
     }
-    virtual public void OnActiveBuff(GameObject target, GameObject source = null)
+    virtual public void OnActiveStatusEffect(GameObject target, GameObject source = null)
     {
 
     }
-    virtual public void OnDeactiveBuff(GameObject target, GameObject source = null)
+    virtual public void OnDeactiveStatusEffect(GameObject target, GameObject source = null)
     {
 
     }

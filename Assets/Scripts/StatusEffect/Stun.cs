@@ -22,15 +22,17 @@ public class Stun : StatusEffect
         base.DeactivateStatusEffect(target, source);
     }
 
-    public override void OnActiveBuff(GameObject target, GameObject source = null)
+    public override void OnActiveStatusEffect(GameObject target, GameObject source = null)
     {
         StunValue = target.gameObject.GetComponentInParent<NavMesh_AI>().NavMesh.speed;
         target.gameObject.GetComponentInParent<NavMesh_AI>().NavMesh.speed -= StunValue;
-    
+        target.gameObject.GetComponentInParent<Enemy>().isStun = true ;
+
     }
-    public override void OnDeactiveBuff(GameObject target, GameObject source = null)
+    public override void OnDeactiveStatusEffect(GameObject target, GameObject source = null)
     {
         target.gameObject.GetComponentInParent<NavMesh_AI>().NavMesh.speed += StunValue;
+        target.gameObject.GetComponentInParent<Enemy>().isStun = false;
         Destroy(this.gameObject);
     }
 
