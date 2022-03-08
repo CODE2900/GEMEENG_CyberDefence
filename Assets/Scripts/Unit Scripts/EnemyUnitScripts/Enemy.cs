@@ -6,6 +6,8 @@ using UnityEngine.Assertions;
 public class Enemy : Unit
 {
     public GameObject FirePoint;
+    public bool isStun;
+    
     public float Damage;
     // Start is called before the first frame update
     void Start()
@@ -74,8 +76,7 @@ public class Enemy : Unit
             }
             Debug.DrawRay(FirePoint.transform.position, FirePoint.transform.forward, Color.red, 2);
         }
-
-
+       
     }
 
     public override void OnDeath()

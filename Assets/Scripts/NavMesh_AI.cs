@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class NavMesh_AI : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent navMesh;
+   public NavMeshAgent NavMesh;
 
     public Transform waypoint;
 
@@ -14,9 +14,9 @@ public class NavMesh_AI : MonoBehaviour
     {
         if(this.gameObject.GetComponent<NavMeshAgent>() != null)
         {
-            navMesh = this.gameObject.GetComponent<NavMeshAgent>();
+            NavMesh = this.gameObject.GetComponent<NavMeshAgent>();
         }
-        navMesh.destination = waypoint.position;
+        NavMesh.destination = waypoint.position;
     }
 
     // Update is called once per frame
