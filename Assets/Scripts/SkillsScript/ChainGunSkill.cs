@@ -48,8 +48,8 @@ public class ChainGunSkill : Skill
         if (turretTarget)
         {
             TargetUnit = turretTarget.gameObject;
-            turretTarget.fireRate *= IncreaseFireRate;
-            Debug.Log("Increased FireRate to : " + turretTarget.fireRate);
+            turretTarget.FireRate *= IncreaseFireRate;
+            Debug.Log("Increased FireRate to : " + turretTarget.FireRate);
         }
     }
 
@@ -59,8 +59,8 @@ public class ChainGunSkill : Skill
         Turret turretTarget = target.GetComponent<Turret>();
         if (turretTarget)
         {
-            turretTarget.fireRate /= IncreaseFireRate;
-            Debug.Log("Decreased FireRate to : " + turretTarget.fireRate);
+            turretTarget.FireRate /= IncreaseFireRate;
+            Debug.Log("Decreased FireRate to : " + turretTarget.FireRate);
         }
     }
 

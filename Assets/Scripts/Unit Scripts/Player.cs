@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : Unit
 {
     public Collider collider;
+    //Add Camera variable 
     // Start is called before the first frame update
     void Start()
     {

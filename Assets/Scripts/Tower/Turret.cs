@@ -11,15 +11,15 @@ enum firingMode
 public class Turret : Unit
 {
     public string ID; 
-    public float fireRate;
-    public GameObject projectile; 
-    public GameObject turretHead;
-    public float recoil;
-    public float spread;
-    public float damage;
+    public float FireRate;
+    public GameObject Projectile; 
+    public GameObject TurretHead;
+    public float Recoil;
+    public float Spread;
+    public float Damage;
 
     public ParticleSystem ShootingParticle;
-    public GameObject status;
+    public GameObject Status;
 
     public List<Skill> turretSkills = new();
     
@@ -48,10 +48,10 @@ public class Turret : Unit
         }
         else
         {
-            if (ShootingParticle)
-            {
-                ShootingParticle.Stop();
-            }
+            //if (ShootingParticle)
+            //{
+            //    //ShootingParticle.Stop();
+            //}
             
             fireTime = 1.5f;
         }
@@ -61,7 +61,7 @@ public class Turret : Unit
     {
         if (fireTime <= 0)
         {
-            if(projectile == null)
+            if(Projectile == null)
             {
                 Debug.Log("Turret Shooting");
                 if (ShootingParticle)
@@ -69,12 +69,12 @@ public class Turret : Unit
                     ShootingParticle.Play();
                 }
                 
-                Targeting.targets[0].GetComponentInParent<Health>().OnHit.Invoke(damage);
+                Targeting.targets[0].GetComponentInParent<Health>().OnHit.Invoke(Damage);
                 fireTime = 1.5f;
             }
             else
             {
-                GameObject EMPBullet = Instantiate(projectile, FirePoint.transform.position, FirePoint.transform.rotation);
+                GameObject EMPBullet = Instantiate(Projectile, FirePoint.transform.position, FirePoint.transform.rotation);
                 fireTime = 1.5f;
             }
         }

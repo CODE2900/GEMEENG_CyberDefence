@@ -30,7 +30,7 @@ public class Mountable : MonoBehaviour
         {
             
             if (Input.GetButton("Fire1")) {
-                if(FireTimer >= TurretParent.GetComponent<Turret>().fireRate)
+                if(FireTimer >= TurretParent.GetComponent<Turret>().FireRate)
                 {
                     //particleEffectRoutine = StartCoroutine(PlayShootingParticles());
                     Debug.Log("Fire button down");
@@ -48,18 +48,19 @@ public class Mountable : MonoBehaviour
             {
                 TurretParent.GetComponent<Turret>().turretSkills[0].ActivateSkill(TurretParent);
             }
-            //if (isMounted)
-            //{
-            //    if (Input.GetKey(KeyCode.F))
-            //    {
-            //        isMounted = false;
-            //        TurretCamera.enabled = false;
-            //        Player.SetActive(true);
-            //        Player.GetComponentInChildren<Camera>().enabled = true;
-            //    }
-            //}
-               
-            
+            if (isMounted)
+            {
+                if (Input.GetKey(KeyCode.P))
+                {
+                    Debug.Log("Unmount");
+                    isMounted = false;
+                    TurretCamera.enabled = false;
+                    Player.SetActive(true);
+                    Player.GetComponentInChildren<Camera>().enabled = true;
+                }
+            }
+
+
         }
         
     }
@@ -70,9 +71,9 @@ public class Mountable : MonoBehaviour
         Player player = other.gameObject.GetComponentInParent<Player>();
         if (player)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (!isMounted)
             {
-                if (!isMounted)
+                if (Input.GetKeyDown(KeyCode.F))
                 {
                     Debug.Log("Mounted Turret");
                     Player = player.gameObject;
@@ -81,8 +82,6 @@ public class Mountable : MonoBehaviour
                     TurretCamera.enabled = true;
                     isMounted = true;
                 }
-                
-                
             }
         }
 
@@ -100,7 +99,7 @@ public class Mountable : MonoBehaviour
                 if (enemyHealth)
                 {
                     Debug.Log("Manual Shooting");
-                    enemyHealth.TakeDamage(TurretParent.GetComponent<Turret>().damage);
+                    enemyHealth.TakeDamage(TurretParent.GetComponent<Turret>().Damage);
                 }
             }
         }

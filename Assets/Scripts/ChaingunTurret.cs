@@ -27,8 +27,9 @@ public class ChaingunTurret : Turret
                 Health enemyHealth = enemyHit.GetComponent<Health>();
                 if (enemyHealth)
                 {
+                    ShootingParticle.Play(true);
                     Debug.Log("Manual Shooting");
-                    enemyHealth.TakeDamage(damage);
+                    enemyHealth.TakeDamage(Damage);
                 }
             }
         }

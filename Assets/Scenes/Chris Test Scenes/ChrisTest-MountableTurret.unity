@@ -333,9 +333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccafa3b8d2e6af849869951ddf534f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  xRotation: 0
-  player: {fileID: 1741445136}
+  MouseSensitivity: 100
+  XRotation: 0
+  Player: {fileID: 1741445136}
 --- !u!1 &423669615
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +814,14 @@ PrefabInstance:
     - target: {fileID: 7897360142860677177, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_Name
       value: GatelingGun_Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024910697869722033, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025247580012781975, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9216627266240761223, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_Enabled
@@ -2215,14 +2223,14 @@ MonoBehaviour:
   Name: 
   AttackRange: 100
   ID: 
-  fireRate: 0.5
-  projectile: {fileID: 0}
-  turretHead: {fileID: 0}
-  recoil: 0
-  spread: 0
-  damage: 20
+  FireRate: 0
+  Projectile: {fileID: 0}
+  TurretHead: {fileID: 0}
+  Recoil: 0
+  Spread: 0
+  Damage: 0
   ShootingParticle: {fileID: 2140493779}
-  status: {fileID: 0}
+  Status: {fileID: 0}
   turretSkills:
   - {fileID: 833470882}
   Targeting: {fileID: 747733192}
@@ -2429,14 +2437,14 @@ MonoBehaviour:
   Name: 
   AttackRange: 100
   ID: 
-  fireRate: 2
-  projectile: {fileID: 6664658926462004249, guid: 91637aefe0ba68147875842cb4292796, type: 3}
-  turretHead: {fileID: 0}
-  recoil: 0
-  spread: 0
-  damage: 0
+  FireRate: 0
+  Projectile: {fileID: 0}
+  TurretHead: {fileID: 0}
+  Recoil: 0
+  Spread: 0
+  Damage: 0
   ShootingParticle: {fileID: 0}
-  status: {fileID: 0}
+  Status: {fileID: 0}
   turretSkills:
   - {fileID: 1035488911}
   Targeting: {fileID: 1901990279}
@@ -2578,8 +2586,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7861520887639300895, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7861520887639300896, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
+      propertyPath: FireRate
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861520887639300896, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 6664658926462004249, guid: 91637aefe0ba68147875842cb4292796, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
 --- !u!114 &1901990279 stripped
