@@ -75,7 +75,7 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            this.gameObject.GetComponent<Renderer>().material = Materials[1];
+            this.gameObject.GetComponent<Renderer>().material = Materials[0];
         }
 
 
