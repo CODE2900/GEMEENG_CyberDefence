@@ -67,7 +67,7 @@ public class Enemy : Unit
             MainBase UnitHit = Hit.transform.gameObject.transform.parent.gameObject.GetComponent<MainBase>();
             if (UnitHit)
             {
-                HealthComponent UnitHitHealth = UnitHit.GetComponent<HealthComponent>();
+                Health UnitHitHealth = UnitHit.GetComponent<Health>();
                 if (UnitHitHealth)
                 {
                     UnitHitHealth.TakeDamage(Damage);

@@ -20,6 +20,8 @@ public class Turret : Unit
 
     public ParticleSystem ShootingParticle;
     public GameObject status;
+
+    public List<Skill> turretSkills = new();
     
     [Header("Targets")]
     public TowerTargeting Targeting;
@@ -59,7 +61,7 @@ public class Turret : Unit
             {
                 Debug.Log("Turret Shooting");
                 ShootingParticle.Play();
-                Targeting.targets[0].GetComponentInParent<HealthComponent>().OnHit.Invoke(damage);
+                Targeting.targets[0].GetComponentInParent<Health>().OnHit.Invoke(damage);
                 fireTime = 1.5f;
             }
             else

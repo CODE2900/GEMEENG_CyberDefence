@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class HealthComponent : MonoBehaviour
+public class Health : MonoBehaviour
 {
     [SerializeField]
     float currentHP;

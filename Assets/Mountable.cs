@@ -10,14 +10,17 @@ public class Mountable : MonoBehaviour
     public Camera TurretCamera;
     public GameObject Player;
     public GameObject FirePoint;
-    private float xRotation = 0f;
+    public bool isMounted = false;
+
     private Coroutine particleEffectRoutine;
     private RaycastHit hit;
+    private float FireTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
         TurretParent = this.gameObject.transform.parent.gameObject;
         TurretCamera.enabled = false;
+        isMounted = false;
     }
 
     // Update is called once per frame
@@ -25,12 +28,38 @@ public class Mountable : MonoBehaviour
     {
         if (TurretCamera.enabled)
         {
-            //Aim();
-            if (Input.GetButtonDown("Fire1")) {
-                particleEffectRoutine = StartCoroutine(PlayShootingParticles());
-                Shoot();
+            
+            if (Input.GetButton("Fire1")) {
+                if(FireTimer >= TurretParent.GetComponent<Turret>().fireRate)
+                {
+                    particleEffectRoutine = StartCoroutine(PlayShootingParticles());
+                    Debug.Log("Fire button down");
+                    Shoot();
+                    FireTimer = 0;
+                }
+                else
+                {
+                    FireTimer += Time.deltaTime;
+                }
+               
             }
-            Debug.DrawRay(FirePoint.transform.position, FirePoint.transform.forward, Color.green);
+            Debug.DrawRay(FirePoint.transform.position, FirePoint.transform.forward * 100, Color.green);
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                TurretParent.GetComponent<Turret>().turretSkills[0].ActivateSkill(TurretParent);
+            }
+            //if (isMounted)
+            //{
+            //    if (Input.GetKey(KeyCode.F))
+            //    {
+            //        isMounted = false;
+            //        TurretCamera.enabled = false;
+            //        Player.SetActive(true);
+            //        Player.GetComponentInChildren<Camera>().enabled = true;
+            //    }
+            //}
+               
+            
         }
         
     }
@@ -42,27 +71,24 @@ public class Mountable : MonoBehaviour
         if (player)
         {
             if (Input.GetKeyDown(KeyCode.F))
-            { 
-                Debug.Log("Mounted Turret");
-                Player = player.gameObject;
-                player.gameObject.transform.GetComponentInChildren<Camera>().enabled = false;
-                TurretCamera.enabled = true;
+            {
+                if (!isMounted)
+                {
+                    Debug.Log("Mounted Turret");
+                    Player = player.gameObject;
+                    player.gameObject.transform.GetComponentInChildren<Camera>().enabled = false;
+                    Player.SetActive(false);
+                    TurretCamera.enabled = true;
+                    isMounted = true;
+                }
+                
+                
             }
         }
 
     }
 
-    private void Aim()
-    {
-        float mouseX = Input.GetAxis("Mouse X") * 100.0f * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * 100.0f * Time.deltaTime;
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -45f, 45f);
-        TurretHead.transform.localRotation = Quaternion.Euler(xRotation, 0, 0f);
-        TurretHead.transform.Rotate(Vector3.up * mouseX);
-
-
-    }
+   
     public void Shoot()
     {
         if (Physics.Raycast(FirePoint.transform.position, FirePoint.transform.forward, out hit))
@@ -70,7 +96,7 @@ public class Mountable : MonoBehaviour
             Enemy enemyHit = hit.transform.gameObject.GetComponent<Enemy>();
             if (enemyHit)
             {
-                HealthComponent enemyHealth = enemyHit.GetComponent<HealthComponent>();
+                Health enemyHealth = enemyHit.GetComponent<Health>();
                 if (enemyHealth)
                 {
                     Debug.Log("Manual Shooting");
