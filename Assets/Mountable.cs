@@ -32,9 +32,9 @@ public class Mountable : MonoBehaviour
             if (Input.GetButton("Fire1")) {
                 if(FireTimer >= TurretParent.GetComponent<Turret>().fireRate)
                 {
-                    particleEffectRoutine = StartCoroutine(PlayShootingParticles());
+                    //particleEffectRoutine = StartCoroutine(PlayShootingParticles());
                     Debug.Log("Fire button down");
-                    Shoot();
+                    TurretParent.GetComponent<Turret>().ManualShooting();//Shoot();
                     FireTimer = 0;
                 }
                 else
@@ -43,7 +43,7 @@ public class Mountable : MonoBehaviour
                 }
                
             }
-            Debug.DrawRay(FirePoint.transform.position, FirePoint.transform.forward * 100, Color.green);
+            
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 TurretParent.GetComponent<Turret>().turretSkills[0].ActivateSkill(TurretParent);
