@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class TowerTargeting : MonoBehaviour
 {
@@ -40,18 +41,11 @@ public class TowerTargeting : MonoBehaviour
         {
             targets.Add(other.transform.gameObject);
         }
-   
-
-        //if(other.gameObject.GetComponentInParent<Enemy>() != null)
-        //{
-        //    target = other.transform.parent.gameObject;
-        //}
-        
     }
 
-    private void OnTriggerStay(Collider other)
+    void OnTargetDeath()
     {
-        
+        targets = targets.Where(item => item != null).ToList(); //if the item is not null, it will go to the list else it will clear any null value 
     }
 
     private void OnTriggerExit(Collider other)

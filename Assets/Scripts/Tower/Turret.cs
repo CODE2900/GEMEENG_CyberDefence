@@ -10,16 +10,18 @@ enum firingMode
 
 public class Turret : Unit
 {
-    public string name;
-    public float fireRate;
-    public GameObject projectile; 
-    public GameObject turretHead;
-    public float recoil;
-    public float spread;
-    public float damage;
+    public string ID; 
+    public float FireRate;
+    public GameObject Projectile; 
+    public GameObject TurretHead;
+    public float Recoil;
+    public float Spread;
+    public float Damage;
 
     public ParticleSystem ShootingParticle;
-    public GameObject status;
+    public GameObject Status;
+
+    public List<Skill> turretSkills = new();
     
     [Header("Targets")]
     public TowerTargeting Targeting;
@@ -46,25 +48,33 @@ public class Turret : Unit
         }
         else
         {
-            ShootingParticle.Stop();
+            //if (ShootingParticle)
+            //{
+            //    //ShootingParticle.Stop();
+            //}
+            
             fireTime = 1.5f;
         }
     }
 
-    public void Shoot()
+    public virtual void Shoot()
     {
         if (fireTime <= 0)
         {
-            if(projectile == null)
+            if(Projectile == null)
             {
                 Debug.Log("Turret Shooting");
-                ShootingParticle.Play();
-                Targeting.targets[0].GetComponentInParent<HealthComponent>().OnHit.Invoke(damage);
+                if (ShootingParticle)
+                {
+                    ShootingParticle.Play();
+                }
+                
+                Targeting.targets[0].GetComponentInParent<Health>().OnHit.Invoke(Damage);
                 fireTime = 1.5f;
             }
             else
             {
-                GameObject EMPBullet = Instantiate(projectile, FirePoint.transform.position, FirePoint.transform.rotation);
+                GameObject EMPBullet = Instantiate(Projectile, FirePoint.transform.position, FirePoint.transform.rotation);
                 fireTime = 1.5f;
             }
         }
@@ -76,6 +86,10 @@ public class Turret : Unit
        
     }
 
+    public virtual void ManualShooting()
+    {
+
+    }
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.gameObject.GetComponentInParent<Enemy>() && status != null)

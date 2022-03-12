@@ -11,7 +11,7 @@ public class PatrolState : StateMachineBehaviour
     {
         Unit = animator.gameObject.transform.parent.transform.parent.gameObject;
         NavMeshAgent UnitAgent = Unit.GetComponent<NavMeshAgent>(); 
-        NavMesh_AI UnitAI = Unit.GetComponent<NavMesh_AI>();
+        NavMeshAI UnitAI = Unit.GetComponent<NavMeshAI>();
         if (UnitAI)
         {
             if (UnitAgent.isStopped)

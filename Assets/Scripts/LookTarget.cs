@@ -33,7 +33,7 @@ public class LookTarget : MonoBehaviour
         }
         else
         {
-            Debug.Log("No Target");
+            //Debug.Log("No Target");
         }
       
     }

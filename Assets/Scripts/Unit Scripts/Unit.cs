@@ -8,7 +8,6 @@ public class Unit : MonoBehaviour
     public string Id;
     public string Name;
     public float AttackRange = 100f;
-    public int Damage = 0;
     // Start is called before the first frame update
     void Start()
     {

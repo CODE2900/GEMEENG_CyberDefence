@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 7861520887648659647}
   - component: {fileID: 7861520887639300896}
   m_Layer: 0
-  m_Name: PM_VoyagerTurret
+  m_Name: EMPTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
