@@ -34,4 +34,26 @@ public class ChaingunTurret : Turret
             }
         }
     }
+
+    public override void AutoFire()
+    {
+        if (Physics.Raycast(FirePoint.transform.position, FirePoint.transform.forward, out hit))
+        {
+            Enemy enemyHit = hit.transform.gameObject.GetComponent<Enemy>();
+            if (enemyHit)
+            {
+                Health enemyHealth = enemyHit.GetComponent<Health>();
+                if (enemyHealth)
+                {
+                    if (ShootingParticle)
+                    {
+                        ShootingParticle.Play(true);
+                    }
+                    
+                    enemyHealth.TakeDamage(Damage);
+                    Debug.Log("Auto Shooting");
+                }
+            }
+        }
+    }
 }

@@ -6,9 +6,7 @@ using System.Linq;
 public class TowerTargeting : MonoBehaviour
 {
     public List<GameObject> targets;
-
-    //public Collider collider;
-
+    public SphereCollider SphereCollider;
    // public GameObject target;
     public Turret turret;
 

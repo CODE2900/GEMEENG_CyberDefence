@@ -4,23 +4,34 @@ using UnityEngine;
 
 public class Mountable : MonoBehaviour
 {
-    public GameObject TurretParent;
+    [Header("Turret")]
+    public Turret TurretParent;
     public GameObject TurretHead;
     public GameObject CameraMount;
     public Camera TurretCamera;
-    public GameObject Player;
     public GameObject FirePoint;
-    public bool isMounted = false;
+    
+    public BoxCollider InteractCollider;
 
+    [Header("Input")]
+    public bool isMounted = false;
+    public float InteractTime = 1;
+    
+
+    [Header("Player")]
+    public GameObject Player;
+
+    private float interactTimer = 0; 
     private Coroutine particleEffectRoutine;
     private RaycastHit hit;
     private float FireTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
-        TurretParent = this.gameObject.transform.parent.gameObject;
+        TurretParent = this.gameObject.transform.parent.GetComponent<Turret>();
         TurretCamera.enabled = false;
         isMounted = false;
+        InteractCollider = this.GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -34,7 +45,7 @@ public class Mountable : MonoBehaviour
                 {
                     //particleEffectRoutine = StartCoroutine(PlayShootingParticles());
                     Debug.Log("Fire button down");
-                    TurretParent.GetComponent<Turret>().ManualShooting();//Shoot();
+                    TurretParent.ManualShooting();//Shoot();
                     FireTimer = 0;
                 }
                 else
@@ -46,17 +57,28 @@ public class Mountable : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                TurretParent.GetComponent<Turret>().turretSkills[0].ActivateSkill(TurretParent);
+                TurretParent.GetComponent<Turret>().TurretSkills[0].ActivateSkill(TurretParent.gameObject);
             }
             if (isMounted)
             {
-                if (Input.GetKey(KeyCode.P))
+                if (Input.GetKey(KeyCode.F))
                 {
-                    Debug.Log("Unmount");
-                    isMounted = false;
-                    TurretCamera.enabled = false;
-                    Player.SetActive(true);
-                    Player.GetComponentInChildren<Camera>().enabled = true;
+                    if (interactTimer >= InteractTime)
+                    {
+                        Debug.Log("Unmount");
+                        isMounted = false;
+                        TurretCamera.enabled = false;
+                        Player.SetActive(true);
+                        Player.GetComponent<Player>().PlayerCamera.enabled = true;
+                        InteractCollider.enabled = true;
+                        interactTimer = 0;
+                        Player = null;
+                    }
+                    else
+                    {
+                        interactTimer += Time.deltaTime;
+                    }
+
                 }
             }
 
@@ -77,10 +99,12 @@ public class Mountable : MonoBehaviour
                 {
                     Debug.Log("Mounted Turret");
                     Player = player.gameObject;
-                    player.gameObject.transform.GetComponentInChildren<Camera>().enabled = false;
+                    player.PlayerCamera.enabled = false;
                     Player.SetActive(false);
-                    TurretCamera.enabled = true;
                     isMounted = true;
+                    TurretCamera.enabled = true;
+                    
+                    InteractCollider.enabled = false;
                 }
             }
         }
@@ -99,7 +123,7 @@ public class Mountable : MonoBehaviour
                 if (enemyHealth)
                 {
                     Debug.Log("Manual Shooting");
-                    enemyHealth.TakeDamage(TurretParent.GetComponent<Turret>().Damage);
+                    enemyHealth.TakeDamage(TurretParent.Damage);
                 }
             }
         }
