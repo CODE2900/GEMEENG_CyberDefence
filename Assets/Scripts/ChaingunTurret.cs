@@ -37,6 +37,7 @@ public class ChaingunTurret : Turret
 
     public override void AutoFire()
     {
+        
         if (Physics.Raycast(FirePoint.transform.position, FirePoint.transform.forward, out hit))
         {
             Enemy enemyHit = hit.transform.gameObject.GetComponent<Enemy>();
@@ -47,7 +48,7 @@ public class ChaingunTurret : Turret
                 {
                     if (ShootingParticle)
                     {
-                        ShootingParticle.Play(true);
+                        ShootingParticle.Play();
                     }
                     
                     enemyHealth.TakeDamage(Damage);

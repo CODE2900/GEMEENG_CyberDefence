@@ -27,12 +27,11 @@ public class Turret : Unit
     [Header("Targets")]
     public TowerTargeting Targeting;
     public Transform FirePoint;
-    [SerializeField] private float fireTime = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
-       // StartCoroutine(Firing());
+       
     }
 
     // Update is called once per frame
@@ -92,4 +91,5 @@ public class Turret : Unit
 
     }
 
+    
 }

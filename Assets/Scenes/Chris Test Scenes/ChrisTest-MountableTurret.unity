@@ -521,7 +521,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 975404528}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4a3c3f07241f9748be0e2914e8c54d2, type: 3}
   m_Name: 
@@ -705,7 +705,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1724943247540119003, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4898044401100269953, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: damage
@@ -725,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: 833470882}
     - target: {fileID: 6553625840065331226, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_RootOrder
@@ -733,7 +733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.09
+      value: -0.91
       objectReference: {fileID: 0}
     - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -741,7 +741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.44
+      value: 22.91
       objectReference: {fileID: 0}
     - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -825,7 +825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9216627266240761223, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4898044401100269953, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
@@ -1236,7 +1236,7 @@ MonoBehaviour:
   FirePoint: {fileID: 336669318}
   InteractCollider: {fileID: 0}
   isMounted: 0
-  InteractTime: 1
+  InteractTime: 0.5
   Player: {fileID: 0}
 --- !u!1 &1306281137
 GameObject:
@@ -2214,19 +2214,19 @@ MonoBehaviour:
   Name: 
   AttackRange: 100
   ID: 
-  FireRate: 0.5
+  FireRate: 3
   Projectile: {fileID: 0}
-  TurretHead: {fileID: 0}
+  TurretHead: {fileID: 1927319489}
   Recoil: 0
   Spread: 0
   Damage: 10
   ShootingParticle: {fileID: 2140493779}
   Status: {fileID: 0}
-  TurretSkills: []
+  TurretSkills:
+  - {fileID: 833470882}
   FiringModes: []
   Targeting: {fileID: 747733192}
   FirePoint: {fileID: 336669319}
-  fireTime: 3
 --- !u!114 &1673992283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2241,7 +2241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TurretParent: {fileID: 1673992282}
   Targeting: {fileID: 747733192}
-  FirePoint: {fileID: 336669319}
+  AutoLook: {fileID: 0}
   FireTime: 0
 --- !u!1 &1722975286
 GameObject:
@@ -2457,7 +2457,6 @@ MonoBehaviour:
   FiringModes: []
   Targeting: {fileID: 1901990279}
   FirePoint: {fileID: 519120511}
-  fireTime: 3
   MineSpawnPoint: {fileID: 1492522276}
 --- !u!1001 &1846200742
 PrefabInstance:

@@ -32,6 +32,7 @@ public class Mountable : MonoBehaviour
         TurretCamera.enabled = false;
         isMounted = false;
         InteractCollider = this.GetComponent<BoxCollider>();
+        
     }
 
     // Update is called once per frame
@@ -41,7 +42,7 @@ public class Mountable : MonoBehaviour
         {
             
             if (Input.GetButton("Fire1")) {
-                if(FireTimer >= TurretParent.GetComponent<Turret>().FireRate)
+                if(FireTimer >= 1/ TurretParent.GetComponent<Turret>().FireRate)
                 {
                     //particleEffectRoutine = StartCoroutine(PlayShootingParticles());
                     Debug.Log("Fire button down");
@@ -68,6 +69,14 @@ public class Mountable : MonoBehaviour
                         Debug.Log("Unmount");
                         isMounted = false;
                         TurretCamera.enabled = false;
+                        AITurretControl turretAI = TurretParent.gameObject.GetComponent<AITurretControl>();
+                        if (turretAI)
+                        {
+                            Debug.Log("There is AITurretControl");
+                            turretAI.AutoLook.enabled = true;
+                            turretAI.Targeting.enabled = true;
+                            turretAI.enabled = true;
+                        }
                         Player.SetActive(true);
                         Player.GetComponent<Player>().PlayerCamera.enabled = true;
                         InteractCollider.enabled = true;
@@ -101,6 +110,13 @@ public class Mountable : MonoBehaviour
                     Player = player.gameObject;
                     player.PlayerCamera.enabled = false;
                     Player.SetActive(false);
+                    AITurretControl turretAI = TurretParent.gameObject.GetComponent<AITurretControl>();
+                    if (turretAI)
+                    {
+                        turretAI.AutoLook.enabled = false;
+                        turretAI.Targeting.enabled = false;
+                        turretAI.enabled = false;
+                    }
                     isMounted = true;
                     TurretCamera.enabled = true;
                     
