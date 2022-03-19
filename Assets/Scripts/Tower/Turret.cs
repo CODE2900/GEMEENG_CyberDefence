@@ -21,17 +21,17 @@ public class Turret : Unit
     public ParticleSystem ShootingParticle;
     public GameObject Status;
 
-    public List<Skill> turretSkills = new();
+    public List<Skill> TurretSkills = new();
+    public List<GameObject> FiringModes = new();
     
     [Header("Targets")]
     public TowerTargeting Targeting;
     public Transform FirePoint;
-    [SerializeField] private float fireTime = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
-       // StartCoroutine(Firing());
+       
     }
 
     // Update is called once per frame
@@ -42,46 +42,46 @@ public class Turret : Unit
 
     private void FixedUpdate()
     {
-        if(Targeting.targets.Count > 0)
-        {
-            Shoot();
-        }
-        else
-        {
-            //if (ShootingParticle)
-            //{
-            //    //ShootingParticle.Stop();
-            //}
+        //if(Targeting.targets.Count > 0)
+        //{
+        //    AutoFire();
+        //}
+        //else
+        //{
+        //    //if (ShootingParticle)
+        //    //{
+        //    //    //ShootingParticle.Stop();
+        //    //}
             
-            fireTime = 1.5f;
-        }
+        //    fireTime = 1.5f;
+        //}
     }
 
-    public virtual void Shoot()
+    public virtual void AutoFire()
     {
-        if (fireTime <= 0)
-        {
-            if(Projectile == null)
-            {
-                Debug.Log("Turret Shooting");
-                if (ShootingParticle)
-                {
-                    ShootingParticle.Play();
-                }
+        //if (fireTime <= 0)
+        //{
+        //    if(Projectile == null)
+        //    {
+        //        Debug.Log("Turret Shooting");
+        //        if (ShootingParticle)
+        //        {
+        //            ShootingParticle.Play();
+        //        }
                 
-                Targeting.targets[0].GetComponentInParent<Health>().OnHit.Invoke(Damage);
-                fireTime = 1.5f;
-            }
-            else
-            {
-                GameObject EMPBullet = Instantiate(Projectile, FirePoint.transform.position, FirePoint.transform.rotation);
-                fireTime = 1.5f;
-            }
-        }
-        else
-        {
-            fireTime -= Time.deltaTime;
-        }
+        //        Targeting.targets[0].GetComponentInParent<Health>().OnHit.Invoke(Damage);
+        //        fireTime = 1.5f;
+        //    }
+        //    else
+        //    {
+        //        GameObject EMPBullet = Instantiate(Projectile, FirePoint.transform.position, FirePoint.transform.rotation);
+        //        fireTime = 1.5f;
+        //    }
+        //}
+        //else
+        //{
+        //    fireTime -= Time.deltaTime;
+        //}
 
        
     }
@@ -90,17 +90,6 @@ public class Turret : Unit
     {
 
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.GetComponentInParent<Enemy>() && status != null)
-    //    {
-    //        GameObject stunStatusEffect = Instantiate(status);
-    //        stunStatusEffect.transform.parent = other.gameObject.transform;
-    //        stunStatusEffect.GetComponent<Stun>().targetUnit = other.gameObject;
-    //        stunStatusEffect.GetComponent<Stun>().ActivateStatusEffect(other.gameObject);
-    //        Debug.Log("Stun");
 
-    //    }
-    //}
-
+    
 }

@@ -23,4 +23,12 @@ public class EMPTurret : Turret
             GameObject EMPBullet = Instantiate(Projectile, FirePoint.transform.position, FirePoint.transform.rotation);
         }
     }
+
+    public override void AutoFire()
+    {
+        if (Projectile)
+        {
+            GameObject EMPBullet = Instantiate(Projectile, FirePoint.transform.position, FirePoint.transform.rotation);
+        }
+    }
 }
