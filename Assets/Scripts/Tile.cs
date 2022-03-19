@@ -75,7 +75,7 @@ public class Tile : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (isEmpty && GhostTurretIndex == 0)
+            if (isEmpty && GhostTurretIndex == 0)   
             {
                 GhostTurret[0].SetActive(false);
                 TurretTower.SetActive(true);
