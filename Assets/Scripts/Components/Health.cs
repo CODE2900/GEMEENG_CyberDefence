@@ -31,6 +31,16 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void Heal(float Value)
+    {
+        currentHP += Value;
+        if (currentHP >=  MaxHP)
+        {
+            currentHP = MaxHP;
+        }
+    }
+
+
     public void Death()
     {
         //this.gameObject.SetActive(false);
@@ -42,9 +52,5 @@ public class Health : MonoBehaviour
     {
         return currentHP <= 0;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
