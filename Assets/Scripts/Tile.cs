@@ -69,13 +69,13 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            this.gameObject.GetComponent<Renderer>().material = Materials[1];
+            this.gameObject.GetComponent<Renderer>().material = Materials[0];
         }
 
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (isEmpty && GhostTurretIndex == 0)
+            if (isEmpty && GhostTurretIndex == 0)   
             {
                 GhostTurret[0].SetActive(false);
                 TurretTower.SetActive(true);

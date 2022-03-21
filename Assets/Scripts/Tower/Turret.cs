@@ -17,7 +17,7 @@ public class Turret : Unit
     public float Recoil;
     public float Spread;
     public float Damage;
-
+    public int Level;
     public ParticleSystem ShootingParticle;
     public GameObject Status;
 
