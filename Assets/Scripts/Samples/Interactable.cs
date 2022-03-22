@@ -13,6 +13,7 @@ public class Interactable : MonoBehaviour
     
     }*/
     public UnityEvent EvtInteracted = new UnityEvent();
+    public UnityEvent<GameObject> EvtInteractedGameObject = new();
     //public UnityAction Interacted;
 
     public void InvokeInteract()
@@ -20,6 +21,9 @@ public class Interactable : MonoBehaviour
         EvtInteracted.Invoke();
         //Interacted.Invoke(); 
     }
-
+    public void InvokeInteract(GameObject Player)
+    {
+        EvtInteractedGameObject.Invoke(Player);
+    }
 
 }

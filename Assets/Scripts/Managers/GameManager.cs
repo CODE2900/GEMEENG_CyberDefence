@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
-    public List<GameObject> waypoints = new List<GameObject>();
+    public GameObject Player;
 
     private void Awake()
     {

@@ -27,6 +27,7 @@ public class Stun : StatusEffect
         StunValue = target.gameObject.GetComponentInParent<NavMeshAI>().NavMesh.speed;
         target.gameObject.GetComponentInParent<NavMeshAI>().NavMesh.speed -= StunValue;
         target.gameObject.GetComponentInParent<Enemy>().isStun = true ;
+        poisonRoutine = StartCoroutine(DestroyStun());
 
     }
     public override void OnDeactiveStatusEffect(GameObject target, GameObject source = null)

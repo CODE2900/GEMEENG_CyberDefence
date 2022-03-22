@@ -8,6 +8,7 @@ public class PlayerCamera : MonoBehaviour
     public float MouseSensitivity = 100.0f;
     public float XRotation = 0f;
     public Transform Player;
+    
 
     RaycastHit hit;
 
@@ -43,6 +44,7 @@ public class PlayerCamera : MonoBehaviour
             if (hit.collider.gameObject.GetComponent<Interactable>() != null)
             {
                 hit.collider.gameObject.GetComponent<Interactable>().InvokeInteract();
+                hit.collider.gameObject.GetComponent<Interactable>().InvokeInteract(SingletonManager.Get<GameManager>().Player);
             }
             
             

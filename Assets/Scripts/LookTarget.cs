@@ -29,7 +29,11 @@ public class LookTarget : MonoBehaviour
     {
         if (TowerTargets.targets.Count > 0)
         {
-            LookAtTarget(TowerTargets.targets[0].transform);
+            if (TowerTargets.targets[0])
+            {
+                LookAtTarget(TowerTargets.targets[0].transform);
+            }
+            
         }
         else
         {

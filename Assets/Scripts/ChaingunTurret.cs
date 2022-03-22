@@ -29,6 +29,7 @@ public class ChaingunTurret : Turret
                 {
                     ShootingParticle.Play(true);
                     Debug.Log("Manual Shooting");
+                    enemyHealth.Attacker = SingletonManager.Get<GameManager>().Player;
                     enemyHealth.TakeDamage(Damage);
                 }
             }
@@ -50,7 +51,7 @@ public class ChaingunTurret : Turret
                     {
                         ShootingParticle.Play();
                     }
-                    
+                    enemyHealth.Attacker = SingletonManager.Get<GameManager>().Player;
                     enemyHealth.TakeDamage(Damage);
                     Debug.Log("Auto Shooting");
                 }

@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 2162988954549184641}
   - component: {fileID: 3860553760991196451}
   - component: {fileID: 8067295948574594902}
+  - component: {fileID: -4112283018084753824}
   m_Layer: 0
   m_Name: Enemy_NavMesh
   m_TagString: Untagged
@@ -161,8 +162,9 @@ MonoBehaviour:
   Id: 
   Name: 
   AttackRange: 500
-  Damage: 2
   FirePoint: {fileID: 26307306774481213}
+  isStun: 0
+  Damage: 2
 --- !u!65 &1142104800037875508
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -224,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04445fb0a00576a4393c18eefb956858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMesh: {fileID: 0}
+  NavMesh: {fileID: 0}
   waypoint: {fileID: 0}
 --- !u!114 &8067295948574594902
 MonoBehaviour:
@@ -243,6 +245,25 @@ MonoBehaviour:
   OnHit:
     m_PersistentCalls:
       m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  Attacker: {fileID: 0}
+--- !u!114 &-4112283018084753824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298887397441308323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b60e3fef13a8f45a73037d99df2d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentGold: 0
+  StartingGold: 0
+  GoldReward: 20
 --- !u!1 &7298887397510647246
 GameObject:
   m_ObjectHideFlags: 0
