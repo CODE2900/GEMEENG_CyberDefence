@@ -46,7 +46,7 @@ public class Enemy : Unit
     //    }
     //}
 
-    public void ShootTarget()
+    public virtual void ShootTarget()
     {
         Debug.Log("Shooting Target");
         RaycastHit Hit;

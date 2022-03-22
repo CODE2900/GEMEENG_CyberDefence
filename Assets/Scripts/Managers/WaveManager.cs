@@ -7,7 +7,8 @@ public class WaveManager : MonoBehaviour
     public List<GameObject> spawners = new List<GameObject>();
     public List<WaveData> waves = new List<WaveData>();
     public int waveCount = 0;
-
+    public float SpawnTimer;
+    private Coroutine waveSpawningRoutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,14 @@ public class WaveManager : MonoBehaviour
                     }
                 }
                 waveCount++;
+                waveSpawningRoutine = StartCoroutine(WaveSpawning());
             }
         }
+    }
+
+    IEnumerator WaveSpawning()
+    {
+        yield return new WaitForSeconds(SpawnTimer);
+        StartWave();
     }
 }
