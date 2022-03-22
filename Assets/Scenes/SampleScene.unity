@@ -212,8 +212,8 @@ MonoBehaviour:
   Id: 
   Name: 
   AttackRange: 100
-  Damage: 0
   collider: {fileID: 1236240022}
+  PlayerCamera: {fileID: 0}
 --- !u!114 &88913553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +242,9 @@ MonoBehaviour:
   currentHP: 0
   maxHP: 100
   OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &157708795
@@ -374,8 +377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29bee6073e6373468679befe1012a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemies: []
-  duration: 0
+  Duration: 0
+  SpeedDebuff: 0
+  status: {fileID: 0}
 --- !u!135 &570546887
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -548,6 +552,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &733770458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733770461}
+  - component: {fileID: 733770460}
+  - component: {fileID: 733770459}
+  m_Layer: 8
+  m_Name: TargetDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &733770459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733770458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1365753f06957ba42842dc62defc4425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+--- !u!135 &733770460
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733770458}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &733770461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733770458}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &969495126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,9 +1156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccafa3b8d2e6af849869951ddf534f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  xRotation: 0
-  player: {fileID: 88913551}
+  MouseSensitivity: 100
+  XRotation: 0
+  Player: {fileID: 0}
 --- !u!81 &1661342911
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1377,6 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets: []
+  SphereCollider: {fileID: 0}
   turret: {fileID: 1163845085701819104}
 --- !u!135 &2041171763
 SphereCollider:
@@ -1541,6 +1605,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131671586}
   m_CullTransparentMesh: 1
+--- !u!1001 &23567291549643209
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6595765767418117202, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_Name
+      value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595765767418353408, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595765767418353408, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595765767418353408, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595765767418353408, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595765767418353408, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595765767418353408, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595765767418353408, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595765767418353408, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595765767418353408, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595765767418353408, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595765767418353408, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 236879935ef25034aa23dd96dc8aa88d, type: 3}
 --- !u!1001 &109925647484425285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2437,18 +2558,20 @@ MonoBehaviour:
   Id: 
   Name: 
   AttackRange: 100
+  ID: 
+  FireRate: 0
+  Projectile: {fileID: 0}
+  TurretHead: {fileID: 0}
+  Recoil: 0
+  Spread: 0
   Damage: 0
-  name: EMP_Turret
-  fireRate: 0
-  projectile: {fileID: 0}
-  turretHead: {fileID: 0}
-  recoil: 0
-  spread: 0
-  damage: 0
+  Level: 0
   ShootingParticle: {fileID: 0}
+  Status: {fileID: 0}
+  TurretSkills: []
+  FiringModes: []
   Targeting: {fileID: 2041171762}
   FirePoint: {fileID: 0}
-  fireTime: 1.5
 --- !u!33 &1163845085702690465
 MeshFilter:
   m_ObjectHideFlags: 0
