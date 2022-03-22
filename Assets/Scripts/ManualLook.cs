@@ -6,6 +6,7 @@ public class ManualLook : MonoBehaviour
 {
     public float mouseSensitivity;
     public float XRotation = 0f;
+    public float YRotation = 0f;
     public Transform TurretHead;
     private Camera turretCamera;
     private GameObject firePoint;
@@ -28,12 +29,12 @@ public class ManualLook : MonoBehaviour
 
             XRotation -= mouseY;
             XRotation = Mathf.Clamp(XRotation, -45f, 45f);
+
+            YRotation += mouseX;
+
+            this.gameObject.transform.rotation = Quaternion.Euler(XRotation, YRotation, 0f);
+            TurretHead.transform.rotation = this.gameObject.transform.rotation;
            
-           //TurretHead.rotation = Quaternion.Euler(XRotation, TurretHead.rotation.y * mouseY, 0f);
-            this.gameObject.transform.localRotation = Quaternion.Euler(XRotation, 0f, 0f);
-            TurretHead.Rotate(Vector3.up * mouseX);
-            //TurretHead.localRotation = Quaternion.Euler(XRotation, 1f * mouseX, 0);
-            //TurretHead.Rotate(new Vector3(-mouseY, mouseX, 0f));
         }
         
     }

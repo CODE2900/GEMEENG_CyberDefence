@@ -20,6 +20,7 @@ public class EMPTurret : Turret
     {
         if (Projectile)
         {
+            Debug.Log("Manual Shooting EMP");
             GameObject EMPBullet = Instantiate(Projectile, FirePoint.transform.position, FirePoint.transform.rotation);
         }
     }

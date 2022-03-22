@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
 
     public UnityEvent<float> OnHit = new UnityEvent<float>();
     public UnityEvent OnDeath = new();
+    public GameObject Attacker;
     // Start is called before the first frame update
     void Start()
     {
