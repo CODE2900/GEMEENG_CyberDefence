@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(Time.deltaTime * ProjectileSpeed, 0, 0);
+        this.transform.Translate(0, -Time.deltaTime * ProjectileSpeed, 0);
     }
 
     private void OnCollisionEnter(Collision collision)

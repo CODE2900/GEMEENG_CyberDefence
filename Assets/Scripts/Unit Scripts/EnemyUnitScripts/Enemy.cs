@@ -52,31 +52,31 @@ public class Enemy : Unit
         RaycastHit Hit;
         Assert.IsNotNull(FirePoint, "There is no FirePoint set");
 
-        //Targeting Targeting = this.gameObject.GetComponent<Targeting>();
-        //if (Targeting)
-        //{
-        //    HealthComponent TargetHealth = Targeting.Target.GetComponent<HealthComponent>();
-        //    if (TargetHealth)
-        //    {
-        //        TargetHealth.OnHit.Invoke(Damage);
-        //    }
-        //}
-        if (Physics.Raycast(FirePoint.transform.position, FirePoint.transform.forward, out Hit, AttackRange))
+        Targeting Targeting = this.gameObject.GetComponent<Targeting>();
+        if (Targeting)
         {
-            Debug.Log("Hit: " + Hit.transform.name);
-            MainBase UnitHit = Hit.transform.GetComponent<MainBase>();
-            if (UnitHit)
+            Health TargetHealth = Targeting.Target.GetComponent<Health>();
+            if (TargetHealth)
             {
-                Health UnitHitHealth = UnitHit.GetComponent<Health>();
-                if (UnitHitHealth)
-                {
-                    UnitHitHealth.TakeDamage(Damage);
-                    Debug.Log("Shooting Target: " + Hit.transform.gameObject.name);
-                }
+                TargetHealth.OnHit.Invoke(Damage);
             }
-            Debug.DrawRay(FirePoint.transform.position, FirePoint.transform.forward, Color.red, 2);
         }
-       
+        //if (Physics.Raycast(FirePoint.transform.position, FirePoint.transform.forward, out Hit, AttackRange))
+        //{
+        //    Debug.Log("Hit: " + Hit.transform.name);
+        //    MainBase UnitHit = Hit.transform.gameObject.GetComponent<MainBase>();
+        //    if (UnitHit)
+        //    {
+        //        Health UnitHitHealth = UnitHit.GetComponent<Health>();
+        //        if (UnitHitHealth)
+        //        {
+        //            UnitHitHealth.TakeDamage(Damage);
+        //            Debug.Log("Shooting Target: " + Hit.transform.gameObject.name);
+        //        }
+        //    }
+        //    Debug.DrawRay(FirePoint.transform.position, FirePoint.transform.forward, Color.red, 2);
+        //}
+
     }
 
     public override void OnDeath()

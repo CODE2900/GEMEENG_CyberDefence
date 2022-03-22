@@ -815,6 +815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GatelingGun_Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 7897360142860677177, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8024910697869722033, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -1718,6 +1722,8 @@ GameObject:
   - component: {fileID: 1413293388}
   - component: {fileID: 1413293386}
   - component: {fileID: 1413293389}
+  - component: {fileID: 1413293391}
+  - component: {fileID: 1413293390}
   m_Layer: 0
   m_Name: MainBase
   m_TagString: Untagged
@@ -1806,7 +1812,40 @@ MonoBehaviour:
   Id: mainbase
   Name: MainBase
   AttackRange: 0
-  Interactable: {fileID: 0}
+--- !u!114 &1413293390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413293383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e875facc7e4a81f48a96c4cd28e201ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 1413293386}
+  Interactable: {fileID: 1413293391}
+  Cost: 500
+  HealAmount: 5
+--- !u!114 &1413293391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413293383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aeb47c8f23abf4bb76c69c89d290d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EvtInteracted:
+    m_PersistentCalls:
+      m_Calls: []
+  EvtInteractedGameObject:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1431128980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,6 +2327,54 @@ MonoBehaviour:
   Targeting: {fileID: 747733192}
   AutoLook: {fileID: 0}
   FireTime: 0
+--- !u!114 &1673992285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719132522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c06771f00bd2847a48008d2ae6a05f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentLevel: 1
+  MaxLevel: 3
+  TurretStats: {fileID: 0}
+  UpgradeTurretStats: {fileID: 6238841060283702715, guid: 93358fadd9844684b91c084af24fc2b7, type: 3}
+  RequiredGold: c8000000fa0000002c010000
+--- !u!114 &1673992286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719132522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aeb47c8f23abf4bb76c69c89d290d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EvtInteracted:
+    m_PersistentCalls:
+      m_Calls: []
+  EvtInteractedGameObject:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &1673992287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719132522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9, y: 1.62, z: 1.78}
+  m_Center: {x: -0.07, y: 0.61, z: 0}
 --- !u!1 &1722975286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,6 +2485,7 @@ GameObject:
   - component: {fileID: 1741445134}
   - component: {fileID: 1741445137}
   - component: {fileID: 1741445138}
+  - component: {fileID: 1741445139}
   m_Layer: 0
   m_Name: Player 2.0
   m_TagString: Untagged
@@ -2483,8 +2571,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentGold: 0
-  StartingGold: 200
+  StartingGold: 500
   GoldReward: 0
+--- !u!114 &1741445139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741445133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386dbe3da2dfc9643992c8419d0715bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Turrets: []
 --- !u!1 &1820257617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7861520887639300895, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
