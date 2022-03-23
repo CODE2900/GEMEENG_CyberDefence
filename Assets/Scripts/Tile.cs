@@ -40,7 +40,7 @@ public class Tile : MonoBehaviour
 
     }
 
-    public void Interact()
+    public void Interact(GameObject Player)
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {

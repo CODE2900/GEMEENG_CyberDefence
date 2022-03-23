@@ -27,24 +27,26 @@ public class AITurretControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Targeting.targets.Count > 0)
+        if (Targeting.targets.Count > 0)
         {
             //TurretHead.transform.LookAt(Targeting.targets[0].transform);
-            if(fireTimer >= GetFireTime())
+            if (Targeting.targets[0] != null)
             {
-                AutomaticShoot();
-                fireTimer = 0;
+                if (fireTimer >= GetFireTime())
+                {
+                    AutomaticShoot();
+                    fireTimer = 0;
+                }
+                else
+                {
+                    fireTimer += Time.deltaTime;
+                }
             }
             else
             {
-                fireTimer += Time.deltaTime;
+                fireTimer = 0;
             }
         }
-        else
-        {
-            fireTimer = 0;
-        }
-        
     }
 
     public void AutomaticShoot()

@@ -15,7 +15,7 @@ public class HealBase : MonoBehaviour
         Interactable = this.GetComponent<Interactable>();
         if (Interactable)
         {
-            Interactable.EvtInteractedGameObject.AddListener(HealBaseHP);
+            Interactable.EvtInteracted.AddListener(HealBaseHP);
         }
     }
 

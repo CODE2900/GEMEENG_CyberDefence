@@ -44,7 +44,7 @@ public class PlayerCamera : MonoBehaviour
             if (hit.collider.gameObject.GetComponent<Interactable>() != null)
             {
                 hit.collider.gameObject.GetComponent<Interactable>().InvokeInteract();
-                hit.collider.gameObject.GetComponent<Interactable>().InvokeInteract(SingletonManager.Get<GameManager>().Player);
+                hit.collider.gameObject.GetComponent<Interactable>().Interact(SingletonManager.Get<GameManager>().Player);
             }
             
             

@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 3860553760991196451}
   - component: {fileID: 8067295948574594902}
   - component: {fileID: 6747653404192302736}
+  - component: {fileID: -8369509800502833107}
   m_Layer: 0
   m_Name: 'Speeder_NavMesh '
   m_TagString: Untagged
@@ -248,6 +249,21 @@ MonoBehaviour:
   FirePoint: {fileID: 26307306774481213}
   isStun: 0
   Damage: 0
+--- !u!114 &-8369509800502833107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298887397441308323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b60e3fef13a8f45a73037d99df2d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentGold: 0
+  StartingGold: 0
+  GoldReward: 30
 --- !u!1 &7298887397510647246
 GameObject:
   m_ObjectHideFlags: 0

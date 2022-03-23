@@ -18,7 +18,7 @@ public class Level : MonoBehaviour
         interactable = this.GetComponent<Interactable>();
         if (interactable)
         {
-            interactable.EvtInteractedGameObject.AddListener(LevelUp);
+            interactable.EvtInteracted.AddListener(LevelUp);
         }
     }
     private void Interact()
