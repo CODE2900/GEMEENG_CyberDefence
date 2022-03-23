@@ -13,8 +13,8 @@ public class EnemyAIStateMachine : StateMachineBehaviour
     // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        base.OnStateEnter(animator, stateInfo, layerIndex);
-        unit = animator.gameObject.transform.parent.transform.parent.gameObject;
+        //base.OnStateEnter(animator, stateInfo, layerIndex);
+        unit = animator.transform.parent.gameObject.GetComponent<ModelInfo>().Parent;
     }
 
     // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine

@@ -24,9 +24,11 @@ public class ChaingunTurret : Turret
             Enemy enemyHit = hit.transform.gameObject.GetComponent<Enemy>();
             if (enemyHit)
             {
+                Debug.Log("Enemy Hit: " + enemyHit.name);
                 Health enemyHealth = enemyHit.GetComponent<Health>();
                 if (enemyHealth)
                 {
+                    Debug.Log("Has health");
                     ShootingParticle.Play(true);
                     Debug.Log("Manual Shooting");
                     enemyHealth.Attacker = SingletonManager.Get<GameManager>().Player;
@@ -38,15 +40,17 @@ public class ChaingunTurret : Turret
 
     public override void AutoFire()
     {
-        
+        Debug.DrawRay(FirePoint.transform.position, FirePoint.transform.forward * 100, Color.green);
         if (Physics.Raycast(FirePoint.transform.position, FirePoint.transform.forward, out hit))
         {
             Enemy enemyHit = hit.transform.gameObject.GetComponent<Enemy>();
             if (enemyHit)
             {
+                Debug.Log("Enemy Hit: " + enemyHit.name);
                 Health enemyHealth = enemyHit.GetComponent<Health>();
                 if (enemyHealth)
                 {
+                    Debug.Log("Has health");
                     if (ShootingParticle)
                     {
                         ShootingParticle.Play();

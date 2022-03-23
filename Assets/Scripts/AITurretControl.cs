@@ -8,13 +8,13 @@ public class AITurretControl : MonoBehaviour
     public TowerTargeting Targeting;
     public LookTarget AutoLook;
     //public Transform FirePoint;
-    public float FireTime;
+    private float fireTime;
     private float fireTimer;
 
     private void Awake()
     {
         TurretParent = this.gameObject.GetComponent<Turret>();
-        FireTime = 1/TurretParent.FireRate;
+        //fireTime = 1/TurretParent.FireRate;
         AutoLook = this.gameObject.GetComponentInChildren<LookTarget>();
     }
 
@@ -30,7 +30,7 @@ public class AITurretControl : MonoBehaviour
         if(Targeting.targets.Count > 0)
         {
             //TurretHead.transform.LookAt(Targeting.targets[0].transform);
-            if(fireTimer >= FireTime)
+            if(fireTimer >= GetFireTime())
             {
                 AutomaticShoot();
                 fireTimer = 0;
@@ -50,6 +50,11 @@ public class AITurretControl : MonoBehaviour
     public void AutomaticShoot()
     {
         TurretParent.AutoFire();
+    }
+
+    public float GetFireTime()
+    {
+        return 1 / TurretParent.FireRate;
     }
 
 }

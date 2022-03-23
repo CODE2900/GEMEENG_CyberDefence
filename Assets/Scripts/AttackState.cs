@@ -8,10 +8,12 @@ public class AttackState : StateMachineBehaviour
     public GameObject Unit;
     public float AttackTimer;
     public float AttackTime = 5; // Temporary for BAT 
+    public Targeting UnitTargeting;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Unit = animator.gameObject.transform.parent.transform.parent.gameObject;
+        Unit = animator.transform.parent.gameObject.GetComponent<ModelInfo>().Parent; ;
+        UnitTargeting = Unit.GetComponent<Targeting>();
         NavMeshAgent UnitAgent = Unit.GetComponent<NavMeshAgent>();
         if (UnitAgent)
         {
@@ -26,23 +28,25 @@ public class AttackState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Targeting Targeting = Unit.GetComponent<Targeting>();
-        if (Targeting.Target)
+
+        if (UnitTargeting.Target)
         {
-            Vector3 LookTransform = Targeting.Target.transform.position;
+            Vector3 LookTransform = UnitTargeting.Target.transform.position;
             LookTransform.x = Unit.transform.position.x;
 
             Unit.transform.LookAt(LookTransform);
-        }
 
-        if (AttackTimer >= AttackTime)
-        { 
-            Unit.GetComponent<Enemy>().ShootTarget();
-            AttackTimer = 0;
-        }
-        else
-        {
-            AttackTimer += Time.deltaTime;
+
+            if (AttackTimer >= AttackTime)
+            {
+
+                Unit.GetComponent<Enemy>().ShootTarget();
+                AttackTimer = 0;
+            }
+            else
+            {
+                AttackTimer += Time.deltaTime;
+            }
         }
     }
 

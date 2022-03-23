@@ -25,21 +25,24 @@ public class WaveManager : MonoBehaviour
     {
         if(waves.Count > 0)
         {
-            if(spawners.Count > 0)
+            if (waveCount < waves.Count)
             {
-                for(int i = 0; i < spawners.Count; i++)
+                if (spawners.Count > 0)
                 {
-                    Spawner spawner = spawners[i].GetComponent<Spawner>();
-                    int randomEnemyToSpawnIndex = Random.Range(0, waves[waveCount].EnemiesToSpawn.Count);
-                    if (spawner)
+                    for (int i = 0; i < spawners.Count; i++)
                     {
-                        spawner.enemyPrefab = waves[waveCount].EnemiesToSpawn[randomEnemyToSpawnIndex];
-                        spawner.numOfEnemiesToSpawn = waves[waveCount].NumToSpawn;
-                        spawner.BeginSpawning();
+                        Spawner spawner = spawners[i].GetComponent<Spawner>();
+                        int randomEnemyToSpawnIndex = Random.Range(0, waves[waveCount].EnemiesToSpawn.Count);
+                        if (spawner)
+                        {
+                            spawner.enemyPrefab = waves[waveCount].EnemiesToSpawn[randomEnemyToSpawnIndex];
+                            spawner.numOfEnemiesToSpawn = waves[waveCount].NumToSpawn;
+                            spawner.BeginSpawning();
+                        }
                     }
+                    waveCount++;
+                    waveSpawningRoutine = StartCoroutine(WaveSpawning());
                 }
-                waveCount++;
-                waveSpawningRoutine = StartCoroutine(WaveSpawning());
             }
         }
     }

@@ -9,7 +9,7 @@ public class PatrolState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Unit = animator.gameObject.transform.parent.transform.parent.gameObject;
+        Unit = animator.transform.parent.gameObject.GetComponent<ModelInfo>().Parent; ;
         NavMeshAgent UnitAgent = Unit.GetComponent<NavMeshAgent>(); 
         NavMeshAI UnitAI = Unit.GetComponent<NavMeshAI>();
         if (UnitAI)
