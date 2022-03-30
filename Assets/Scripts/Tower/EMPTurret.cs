@@ -8,7 +8,7 @@ public class EMPTurret : Turret
     // Start is called before the first frame update
     void Start()
     {
-        
+        Initialize();
     }
 
     // Update is called once per frame
@@ -30,6 +30,14 @@ public class EMPTurret : Turret
         if (Projectile)
         {
             GameObject EMPBullet = Instantiate(Projectile, FirePoint.transform.position, FirePoint.transform.rotation);
+        }
+    }
+
+    public override void Initialize()
+    {
+        if (Attributes == null)
+        {
+            Attributes = this.GetComponent<TurretAttributes>();
         }
     }
 }

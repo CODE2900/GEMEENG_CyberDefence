@@ -17,7 +17,7 @@ public class TowerTile : MonoBehaviour
         
     }
 
-    public void OnInteracted()
+    public void OnInteracted(GameObject player)
     {
 
     }

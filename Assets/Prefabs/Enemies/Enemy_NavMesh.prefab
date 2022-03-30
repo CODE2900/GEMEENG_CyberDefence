@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 
   Name: 
-  AttackRange: 500
+  AttackRange: 1000
   FirePoint: {fileID: 26307306774481213}
   isStun: 0
   Damage: 2

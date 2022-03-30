@@ -11,12 +11,13 @@ enum firingMode
 public class Turret : Unit
 {
     public string ID; 
-    public float FireRate;
+    //public float FireRate;
     public GameObject Projectile; 
     public GameObject TurretHead;
-    public float Recoil;
-    public float Spread;
-    public float Damage;
+    //public float Recoil;
+    //public float Spread;
+    //public float Damage;
+    public TurretAttributes Attributes;
     //public int Level;
     public ParticleSystem ShootingParticle;
     public GameObject Status;
@@ -34,54 +35,8 @@ public class Turret : Unit
        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void FixedUpdate()
-    {
-        //if(Targeting.targets.Count > 0)
-        //{
-        //    AutoFire();
-        //}
-        //else
-        //{
-        //    //if (ShootingParticle)
-        //    //{
-        //    //    //ShootingParticle.Stop();
-        //    //}
-            
-        //    fireTime = 1.5f;
-        //}
-    }
-
     public virtual void AutoFire()
     {
-        //if (fireTime <= 0)
-        //{
-        //    if(Projectile == null)
-        //    {
-        //        Debug.Log("Turret Shooting");
-        //        if (ShootingParticle)
-        //        {
-        //            ShootingParticle.Play();
-        //        }
-                
-        //        Targeting.targets[0].GetComponentInParent<Health>().OnHit.Invoke(Damage);
-        //        fireTime = 1.5f;
-        //    }
-        //    else
-        //    {
-        //        GameObject EMPBullet = Instantiate(Projectile, FirePoint.transform.position, FirePoint.transform.rotation);
-        //        fireTime = 1.5f;
-        //    }
-        //}
-        //else
-        //{
-        //    fireTime -= Time.deltaTime;
-        //}
 
        
     }
@@ -90,6 +45,5 @@ public class Turret : Unit
     {
 
     }
-
     
 }

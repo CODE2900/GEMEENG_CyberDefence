@@ -8,16 +8,4 @@ public class WaveData : ScriptableObject
     public List<GameObject> EnemiesToSpawn;
     public int NumToSpawn = 1;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

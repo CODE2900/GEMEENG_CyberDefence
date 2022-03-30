@@ -515,22 +515,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1323182641, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1323182643, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1724943247540119003, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: turret
       value: 
       objectReference: {fileID: 4898044401100269953, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-    - target: {fileID: 4636178258068680581, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 7894262480005363165, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -768,18 +756,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1396099004, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820257620, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
-      propertyPath: ID
-      value: emp_turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820257620, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
-      propertyPath: FireRate
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7861520887639066495, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -827,10 +803,6 @@ PrefabInstance:
     - target: {fileID: 7861520887639300895, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
       propertyPath: m_Name
       value: EMPTurret
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025061269110218480, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9025061269110218482, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
       propertyPath: turret
@@ -1209,9 +1181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EvtInteracted:
-    m_PersistentCalls:
-      m_Calls: []
-  EvtInteractedGameObject:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1431128980
@@ -1825,41 +1794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Turrets: []
---- !u!1 &1820257617 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7861520887639300895, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
-  m_PrefabInstance: {fileID: 1172218367}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1820257624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820257617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03c06771f00bd2847a48008d2ae6a05f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentLevel: 1
-  MaxLevel: 3
-  TurretStats: {fileID: 0}
-  UpgradeTurretStats: {fileID: 5375877455211098588, guid: 7f102312416df174394c9a343e9fe0df, type: 3}
-  RequiredGold: 32000000640000002c010000
---- !u!65 &1820257629
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820257617}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7, y: 1.52, z: 1.61}
-  m_Center: {x: 0, y: 0.36, z: 0}
+  TurretCount: 
 --- !u!1001 &1846200742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1945,6 +1880,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1820257624, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
+      propertyPath: UpgradeTurretStats
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7861520887639066495, guid: 020a5f0f5d74f9d49aabcebb8787596f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2061,6 +2000,10 @@ PrefabInstance:
     - target: {fileID: 109925647846557926, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}
       propertyPath: m_Name
       value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468359215266215389, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}
+      propertyPath: UpgradeTurretStats
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc54eb0f0ff90ea47a80cd8b150433a2, type: 3}

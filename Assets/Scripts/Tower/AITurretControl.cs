@@ -56,7 +56,8 @@ public class AITurretControl : MonoBehaviour
 
     public float GetFireTime()
     {
-        return 1 / TurretParent.FireRate;
+        fireTime = 1 / TurretParent.Attributes.FireRate;
+        return 1 / TurretParent.Attributes.FireRate;
     }
 
 }

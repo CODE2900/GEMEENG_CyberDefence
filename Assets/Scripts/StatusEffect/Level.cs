@@ -6,15 +6,15 @@ public class Level : MonoBehaviour
 {
     public int CurrentLevel = 1;
     public int MaxLevel = 3;
-    public Turret TurretStats;
-    public Turret UpgradeTurretStats;
+    public TurretAttributes TurretStats;
+    public TurretAttributes UpgradeTurretStats;
     public List<int> RequiredGold;
     private Interactable interactable;
     
 
     private void Start()
     {
-        TurretStats = this.GetComponent<Turret>();
+        TurretStats = this.GetComponent<TurretAttributes>();
         interactable = this.GetComponent<Interactable>();
         if (interactable)
         {

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4181034492277630088}
-  - component: {fileID: 6238841060283702715}
+  - component: {fileID: 1468069031853965585}
   m_Layer: 0
   m_Name: ChaingunUpgradeStats
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6238841060283702715
+--- !u!114 &1468069031853965585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,22 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5245819857729171875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09bfa10fe48f8be4bbdb1145b2136b1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a424fbf97339dd4d9157169602f9724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 
-  Name: 
-  AttackRange: 100
-  ID: 
-  FireRate: 2
-  Projectile: {fileID: 0}
-  TurretHead: {fileID: 0}
+  FireRate: 3
   Recoil: 0
   Spread: 0
-  Damage: 10
-  ShootingParticle: {fileID: 0}
-  Status: {fileID: 0}
-  TurretSkills: []
-  FiringModes: []
-  Targeting: {fileID: 0}
-  FirePoint: {fileID: 0}
+  Damage: 5

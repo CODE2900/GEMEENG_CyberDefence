@@ -8,7 +8,7 @@ public class ChaingunTurret : Turret
     // Start is called before the first frame update
     void Start()
     {
-        
+        Initialize();
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class ChaingunTurret : Turret
                     ShootingParticle.Play(true);
                     Debug.Log("Manual Shooting");
                     enemyHealth.Attacker = SingletonManager.Get<GameManager>().Player;
-                    enemyHealth.TakeDamage(Damage);
+                    enemyHealth.TakeDamage(Attributes.Damage);
                 }
             }
         }
@@ -56,10 +56,18 @@ public class ChaingunTurret : Turret
                         ShootingParticle.Play();
                     }
                     enemyHealth.Attacker = SingletonManager.Get<GameManager>().Player;
-                    enemyHealth.TakeDamage(Damage);
+                    enemyHealth.TakeDamage(Attributes.Damage);
                     Debug.Log("Auto Shooting");
                 }
             }
+        }
+    }
+
+    public override void Initialize()
+    {
+        if(Attributes == null)
+        {
+            Attributes = this.GetComponent<TurretAttributes>();
         }
     }
 }

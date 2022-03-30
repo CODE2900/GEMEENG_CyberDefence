@@ -766,6 +766,9 @@ GameObject:
   - component: {fileID: 1820257629}
   - component: {fileID: 1820257624}
   - component: {fileID: 9032489207345327274}
+  - component: {fileID: 1438318442204046265}
+  - component: {fileID: 1765507118170897648}
+  - component: {fileID: 1820257630}
   m_Layer: 0
   m_Name: EMPTurret
   m_TagString: Untagged
@@ -829,12 +832,9 @@ MonoBehaviour:
   Name: 
   AttackRange: 100
   ID: emp_turret
-  FireRate: 0.5
   Projectile: {fileID: 6664658926462004249, guid: 91637aefe0ba68147875842cb4292796, type: 3}
   TurretHead: {fileID: 0}
-  Recoil: 0
-  Spread: 0
-  Damage: 0
+  Attributes: {fileID: 0}
   ShootingParticle: {fileID: 0}
   Status: {fileID: 0}
   TurretSkills:
@@ -885,8 +885,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentLevel: 1
   MaxLevel: 3
-  TurretStats: {fileID: 0}
-  UpgradeTurretStats: {fileID: 5375877455211098588, guid: 7f102312416df174394c9a343e9fe0df, type: 3}
+  TurretStats: {fileID: 1820257630}
+  UpgradeTurretStats: {fileID: 4907235261626680649, guid: 7f102312416df174394c9a343e9fe0df, type: 3}
   RequiredGold: 32000000640000002c010000
 --- !u!114 &9032489207345327274
 MonoBehaviour:
@@ -903,9 +903,52 @@ MonoBehaviour:
   EvtInteracted:
     m_PersistentCalls:
       m_Calls: []
-  EvtInteractedGameObject:
-    m_PersistentCalls:
-      m_Calls: []
+--- !u!65 &1438318442204046265
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861520887639300895}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7, y: 1.52, z: 1.61}
+  m_Center: {x: 0, y: 0.36, z: 0}
+--- !u!114 &1765507118170897648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861520887639300895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c06771f00bd2847a48008d2ae6a05f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentLevel: 1
+  MaxLevel: 3
+  TurretStats: {fileID: 1820257630}
+  UpgradeTurretStats: {fileID: 4907235261626680649, guid: 7f102312416df174394c9a343e9fe0df, type: 3}
+  RequiredGold: 32000000640000002c010000
+--- !u!114 &1820257630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861520887639300895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a424fbf97339dd4d9157169602f9724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireRate: 0.5
+  Recoil: 0
+  Spread: 0
+  Damage: 0
 --- !u!1 &7861520887639300961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,7 +2335,7 @@ GameObject:
   - component: {fileID: 9025061269110218481}
   - component: {fileID: 9025061269110218483}
   - component: {fileID: 9025061269110218482}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TowerTargeting
   m_TagString: Untagged
   m_Icon: {fileID: 0}

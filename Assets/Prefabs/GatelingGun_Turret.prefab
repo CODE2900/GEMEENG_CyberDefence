@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 3469299996452292699}
   - component: {fileID: 6553625840065331226}
   - component: {fileID: 1724943247540119003}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TowerTargeting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -844,6 +844,7 @@ GameObject:
   - component: {fileID: 1673992283}
   - component: {fileID: 1673992285}
   - component: {fileID: 1673992286}
+  - component: {fileID: 975404530}
   m_Layer: 0
   m_Name: GatelingGun_Turret
   m_TagString: Untagged
@@ -939,12 +940,9 @@ MonoBehaviour:
   Name: 
   AttackRange: 100
   ID: 
-  FireRate: 3
   Projectile: {fileID: 0}
   TurretHead: {fileID: 7897298888237973203}
-  Recoil: 0
-  Spread: 0
-  Damage: 10
+  Attributes: {fileID: 0}
   ShootingParticle: {fileID: 8025247580012781975}
   Status: {fileID: 0}
   TurretSkills:
@@ -981,8 +979,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentLevel: 1
   MaxLevel: 3
-  TurretStats: {fileID: 0}
-  UpgradeTurretStats: {fileID: 6238841060283702715, guid: 93358fadd9844684b91c084af24fc2b7, type: 3}
+  TurretStats: {fileID: 975404530}
+  UpgradeTurretStats: {fileID: 1468069031853965585, guid: 93358fadd9844684b91c084af24fc2b7, type: 3}
   RequiredGold: c8000000fa0000002c010000
 --- !u!114 &1673992286
 MonoBehaviour:
@@ -999,9 +997,22 @@ MonoBehaviour:
   EvtInteracted:
     m_PersistentCalls:
       m_Calls: []
-  EvtInteractedGameObject:
-    m_PersistentCalls:
-      m_Calls: []
+--- !u!114 &975404530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897360142860677177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a424fbf97339dd4d9157169602f9724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireRate: 3
+  Recoil: 0
+  Spread: 0
+  Damage: 10
 --- !u!1 &7897633406847090501
 GameObject:
   m_ObjectHideFlags: 0
@@ -21257,7 +21268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6914831215099356182, guid: 6423abd8c0c5f8141a5ed564cc9fa10e, type: 3}
       propertyPath: IncreaseFireRate
-      value: 0.1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6423abd8c0c5f8141a5ed564cc9fa10e, type: 3}

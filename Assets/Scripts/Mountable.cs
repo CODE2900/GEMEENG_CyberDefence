@@ -42,7 +42,7 @@ public class Mountable : MonoBehaviour
         {
             
             if (Input.GetButton("Fire1")) {
-                if(FireTimer >= 1/ TurretParent.FireRate)
+                if(FireTimer >= 1/ TurretParent.Attributes.FireRate)
                 {
                     //particleEffectRoutine = StartCoroutine(PlayShootingParticles());
                     Debug.Log("Fire button down");
@@ -139,7 +139,7 @@ public class Mountable : MonoBehaviour
                 if (enemyHealth)
                 {
                     Debug.Log("Manual Shooting");
-                    enemyHealth.TakeDamage(TurretParent.Damage);
+                    enemyHealth.TakeDamage(TurretParent.Attributes.Damage);
                 }
             }
         }
