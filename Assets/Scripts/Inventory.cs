@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<GameObject> Turrets;
-    // Start is called before the first frame update
-    void Start()
+    public int turretInventory = 4;
+    public void Awake()
     {
-        
+        SingletonManager.Register(this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
