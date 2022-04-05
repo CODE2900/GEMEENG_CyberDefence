@@ -2,13 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 public class WaveManager : MonoBehaviour
 {
     public List<GameObject> spawners = new List<GameObject>();
     public List<WaveData> waves = new List<WaveData>();
     public int waveCount = 0;
     public float SpawnTimer;
+    public UnityEvent OnStartWave = new();
     private Coroutine waveSpawningRoutine;
+
+    private void Awake()
+    {
+        SingletonManager.Register(this);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +37,7 @@ public class WaveManager : MonoBehaviour
             {
                 if (spawners.Count > 0)
                 {
+                    OnStartWave.Invoke();
                     for (int i = 0; i < spawners.Count; i++)
                     {
                         Spawner spawner = spawners[i].GetComponent<Spawner>();

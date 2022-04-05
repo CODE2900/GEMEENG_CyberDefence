@@ -230,6 +230,9 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   Attacker: {fileID: 0}
 --- !u!114 &6747653404192302736
 MonoBehaviour:
@@ -264,6 +267,9 @@ MonoBehaviour:
   CurrentGold: 0
   StartingGold: 0
   GoldReward: 30
+  OnGoldChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7298887397510647246
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +372,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23398414639640764, guid: e7965cb5f3b6b49439772edd4131b2b0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f48f6ffd97933c6449e392de05e862c5, type: 2}
     - target: {fileID: 95096058574463750, guid: e7965cb5f3b6b49439772edd4131b2b0, type: 3}
       propertyPath: m_Controller
       value: 
