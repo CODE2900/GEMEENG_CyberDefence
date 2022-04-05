@@ -19,6 +19,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHP = maxHP;
+        SingletonManager.Get<DisplayEnemyHealth>().SetMaxHealth(maxHP);
 
         OnHit.AddListener(TakeDamage);
     }

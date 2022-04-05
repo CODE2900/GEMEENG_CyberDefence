@@ -22,6 +22,6 @@ public class TurretCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        turretCount.text = "Basic Turret: " + playerInventory.Turrets.Count;
+       // turretCount.text = "Basic Turret: " + playerInventory.Turrets.Count;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject Player;
+    public Transform playerCamera;
 
     private void Awake()
     {

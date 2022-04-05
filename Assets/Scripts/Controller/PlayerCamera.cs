@@ -7,7 +7,7 @@ public class PlayerCamera : MonoBehaviour
     [Header("Mouse")]
     public float MouseSensitivity = 100.0f;
     public float XRotation = 0f;
-    public Transform Player;
+    public GameObject Player;
     
 
     RaycastHit hit;
@@ -29,7 +29,7 @@ public class PlayerCamera : MonoBehaviour
         XRotation = Mathf.Clamp(XRotation, -45f, 45f);
 
         this.gameObject.transform.localRotation = Quaternion.Euler(XRotation, 0f, 0f);
-        Player.Rotate(Vector3.up * mouseX);
+        Player.transform.Rotate(Vector3.up * mouseX);
         #endregion
 
         #region raycasting
@@ -44,7 +44,7 @@ public class PlayerCamera : MonoBehaviour
             if (hit.collider.gameObject.GetComponent<Interactable>() != null)
             {
                 hit.collider.gameObject.GetComponent<Interactable>().InvokeInteract();
-                hit.collider.gameObject.GetComponent<Interactable>().Interact(SingletonManager.Get<GameManager>().Player);
+                hit.collider.gameObject.GetComponent<Interactable>().Interact(Player);
             }
             
             
