@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MouseSensitivity: 100
   XRotation: 0
-  Player: {fileID: 916351286670807684}
+  Player: {fileID: 916351286670807705}
 --- !u!1 &916351286108721933
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +195,8 @@ GameObject:
   - component: {fileID: 916351286670807684}
   - component: {fileID: 916351286670807707}
   - component: {fileID: 916351286670807706}
+  - component: {fileID: 1741445139}
+  - component: {fileID: 1741445143}
   m_Layer: 0
   m_Name: Player 2.0
   m_TagString: Untagged
@@ -250,6 +252,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1741445139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916351286670807705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386dbe3da2dfc9643992c8419d0715bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretInventory: 4
+  Turrets: []
+  TurretCount: 
+--- !u!114 &1741445143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916351286670807705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b60e3fef13a8f45a73037d99df2d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentGold: 0
+  StartingGold: 300
+  GoldReward: 0
+  OnGoldChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &916351286743568356
 GameObject:
   m_ObjectHideFlags: 0

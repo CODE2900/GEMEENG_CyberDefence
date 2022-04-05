@@ -46,6 +46,10 @@ public class PlayerCamera : MonoBehaviour
                 hit.collider.gameObject.GetComponent<Interactable>().InvokeInteract();
                 hit.collider.gameObject.GetComponent<Interactable>().Interact(Player);
             }
+            else
+            {
+                SingletonManager.Get<UIManager>().InteractUI.GetComponent<DisplayInteractMessage>().RemoveMessageText();
+            }
             
             
         }

@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    
     public Canvas PlayerCanvas;
-    public GameObject InteractUI; 
+    public GameObject InteractUI;
+
+    private void Awake()
+    {
+        SingletonManager.Register(this);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -17,4 +23,6 @@ public class UIManager : MonoBehaviour
     {
         
     }
+
+
 }

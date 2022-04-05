@@ -102,6 +102,7 @@ public class Mountable : MonoBehaviour
         Player player = other.gameObject.GetComponentInParent<Player>();
         if (player)
         {
+            Debug.Log("Can Interact with Turret");
             if (!isMounted)
             {
                 if (Input.GetKeyDown(KeyCode.F))

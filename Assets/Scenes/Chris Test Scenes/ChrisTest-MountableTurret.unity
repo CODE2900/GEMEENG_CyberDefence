@@ -952,6 +952,9 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   Attacker: {fileID: 0}
 --- !u!65 &1385097347
 BoxCollider:
@@ -1118,6 +1121,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
   Attacker: {fileID: 0}
@@ -1422,6 +1428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1741445133}
+  playerCamera: {fileID: 0}
 --- !u!1 &1589443045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,6 +1788,9 @@ MonoBehaviour:
   CurrentGold: 0
   StartingGold: 500
   GoldReward: 0
+  OnGoldChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1741445139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1793,6 +1803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386dbe3da2dfc9643992c8419d0715bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretInventory: 4
   Turrets: []
   TurretCount: 
 --- !u!1001 &1846200742

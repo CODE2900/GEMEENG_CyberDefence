@@ -21,6 +21,7 @@ public class HealBase : MonoBehaviour
 
     public void HealBaseHP(GameObject Player)
     {
+        SingletonManager.Get<UIManager>().InteractUI.GetComponent<DisplayInteractMessage>().ChangeMesssageText("E to Heal Base");
         if (Input.GetKeyDown(KeyCode.E))
         {
             Gold playerGold = Player.GetComponent<Gold>();

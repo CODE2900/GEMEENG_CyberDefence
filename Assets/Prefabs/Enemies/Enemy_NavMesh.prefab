@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 983288659}
   - component: {fileID: 983288658}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -621,6 +621,9 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   Attacker: {fileID: 0}
 --- !u!114 &-4112283018084753824
 MonoBehaviour:
@@ -637,6 +640,9 @@ MonoBehaviour:
   CurrentGold: 0
   StartingGold: 0
   GoldReward: 20
+  OnGoldChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7298887397510647246
 GameObject:
   m_ObjectHideFlags: 0

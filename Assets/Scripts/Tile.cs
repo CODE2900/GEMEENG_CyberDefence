@@ -42,6 +42,7 @@ public class Tile : MonoBehaviour
 
     public void Interact(GameObject Player)
     {
+        SingletonManager.Get<UIManager>().InteractUI.GetComponent<DisplayInteractMessage>().ChangeMesssageText("Q to change turret. E to place turret");
         if(Input.GetKeyDown(KeyCode.Q))
         {
             if(GhostTurretIndex > GhostTurret.Length)
