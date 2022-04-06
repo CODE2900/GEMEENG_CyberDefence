@@ -18,7 +18,11 @@ public class PatrolState : StateMachineBehaviour
             {
                 UnitAgent.isStopped = false;
             }
-            UnitAgent.destination = UnitAI.waypoint.position;
+            if (UnitAI.waypoint != null)
+            {
+                UnitAgent.destination = UnitAI.waypoint.position;
+            }
+            //UnitAgent.destination = UnitAI.waypoint.position;
         }
     }
 

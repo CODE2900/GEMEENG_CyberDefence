@@ -7501,6 +7501,9 @@ MonoBehaviour:
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
+  OnHeal:
+    m_PersistentCalls:
+      m_Calls: []
   Attacker: {fileID: 0}
 --- !u!54 &1413293388
 Rigidbody:
@@ -7591,7 +7594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431128980}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 5.200001, y: 1.6800001, z: -8.419998}
+  m_LocalPosition: {x: 0.93, y: 1.6800001, z: -1.98}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7618,7 +7621,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431128980}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -15281,6 +15284,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1741445143, guid: 321ff6ab652ec934ea0ac75dd10e6251, type: 3}
+      propertyPath: StartingGold
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 916351286670807684, guid: 321ff6ab652ec934ea0ac75dd10e6251, type: 3}
       propertyPath: m_RootOrder
       value: 9

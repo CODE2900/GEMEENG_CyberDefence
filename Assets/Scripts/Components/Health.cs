@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     public UnityEvent<float> OnHit = new UnityEvent<float>();
     public UnityEvent OnDeath = new();
     public UnityEvent OnTakeDamage = new();
+    public UnityEvent OnHeal = new();
     public GameObject Attacker;
 
     public void Awake()
@@ -45,6 +46,7 @@ public class Health : MonoBehaviour
 
     public void Heal(float Value)
     {
+        OnHeal.Invoke();
         currentHP += Value;
         if (currentHP >=  MaxHP)
         {

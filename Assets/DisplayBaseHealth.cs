@@ -33,6 +33,7 @@ public class DisplayBaseHealth : MonoBehaviour
     {
         Assert.IsNotNull(BaseHealth, "Base health is null or empty");
         BaseHealth.OnTakeDamage.AddListener(UpdateHealthBar);
+        BaseHealth.OnHeal.AddListener(UpdateHealthBar);
         if(HealthSlider == null)
         {
             HealthSlider = this.GetComponent<Slider>();

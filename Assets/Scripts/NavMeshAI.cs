@@ -16,7 +16,11 @@ public class NavMeshAI : MonoBehaviour
         {
             NavMesh = this.gameObject.GetComponent<NavMeshAgent>();
         }
-        NavMesh.destination = waypoint.position;
+        if(waypoint != null)
+        {
+            NavMesh.destination = waypoint.position;
+        }
+        
     }
 
     // Update is called once per frame
