@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a424fbf97339dd4d9157169602f9724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireRate: 2
+  FireRate: 0.2
   Recoil: 0
   Spread: 0
   Damage: 0

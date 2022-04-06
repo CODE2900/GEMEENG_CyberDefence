@@ -81,6 +81,7 @@ public class Tile : MonoBehaviour
                 if (isEmpty && GhostTurretIndex == 0)
                 {
                     SingletonManager.Get<Inventory>().turretInventory -= 1;
+                    SingletonManager.Get<Inventory>().OnUseInventory.Invoke();
                     GhostTurret[0].SetActive(false);
                     TurretTower.SetActive(true);
                     TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
@@ -89,6 +90,7 @@ public class Tile : MonoBehaviour
                 else if (isEmpty && GhostTurretIndex == 1)
                 {
                     SingletonManager.Get<Inventory>().turretInventory -= 1;
+                    SingletonManager.Get<Inventory>().OnUseInventory.Invoke();
                     GhostTurret[1].SetActive(false);
                     EMPTower.SetActive(true);
                     EMPTower.GetComponent<Turret>().Targeting.targets.Clear();
@@ -97,6 +99,7 @@ public class Tile : MonoBehaviour
                 else if (!isEmpty)
                 {
                     SingletonManager.Get<Inventory>().turretInventory += 1;
+                    SingletonManager.Get<Inventory>().OnUseInventory.Invoke();
                     Debug.Log("Turret Remove");
                     if (TurretTower.activeInHierarchy)
                     {

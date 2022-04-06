@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Level : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Level : MonoBehaviour
     public TurretAttributes TurretStats;
     public TurretAttributes UpgradeTurretStats;
     public List<int> RequiredGold;
+    public UnityEvent OnLevelUp = new();
     private Interactable interactable;
     
 
@@ -44,6 +46,7 @@ public class Level : MonoBehaviour
                         Debug.Log("Upgraded");
                     }
                     playerGold.ReduceGold(RequiredGold[CurrentLevel-1]); 
+                    OnLevelUp.Invoke();
                 }
                 else
                 {
