@@ -5,6 +5,11 @@ using UnityEngine.Assertions;
 
 public class Tank : Enemy
 {
+
+    private void Start()
+    {
+        Initialize();
+    }
     //public GameObject FirePoint;
     //public bool isStun;
 
@@ -52,5 +57,10 @@ public class Tank : Enemy
     public override void OnDeath()
     {
         base.OnDeath();
+    }
+
+    public override void Initialize()
+    {
+        base.Initialize();
     }
 }

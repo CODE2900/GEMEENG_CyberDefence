@@ -25,12 +25,12 @@ public class DisplayWaveCounter : MonoBehaviour
 
     public void UpdateCurrentWaveText()
     {
-        CurrentWaveText.text = (WaveManager.waveCount+1).ToString("0");
+        CurrentWaveText.text = (WaveManager.WaveCount+1).ToString("0");
     }
 
     public void SetMaxWaveText()
     {
-        MaxWaveText.text = WaveManager.waves.Count.ToString();
+        MaxWaveText.text = WaveManager.Waves.Count.ToString();
     }
    
 }

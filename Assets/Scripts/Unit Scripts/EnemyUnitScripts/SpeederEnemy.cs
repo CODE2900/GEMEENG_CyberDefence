@@ -12,7 +12,7 @@ public class SpeederEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
-
+        Initialize();
     }
 
     // Update is called once per frame
@@ -60,5 +60,10 @@ public class SpeederEnemy : Enemy
     public override void OnDeath()
     {
         base.OnDeath();
+    }
+
+    public override void Initialize()
+    {
+        base.Initialize();
     }
 }

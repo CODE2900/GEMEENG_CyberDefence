@@ -7,12 +7,12 @@ public class Enemy : Unit
 {
     public GameObject FirePoint;
     public bool isStun;
-    
+    public Health Health; 
     public float Damage;
     // Start is called before the first frame update
     void Start()
     {
-       
+       Initialize();
     }
 
     // Update is called once per frame
@@ -81,6 +81,19 @@ public class Enemy : Unit
 
     public override void OnDeath()
     {
-        base.OnDeath();
+        //base.OnDeath();
+        SingletonManager.Get<GameManager>().EnemyKilled++;
+        SingletonManager.Get<WaveManager>().CheckForEnemies();
+    }
+
+    public override void Initialize()
+    {
+        //base.Initialize();
+        if(Health == null)
+        {
+            Health = this.GetComponent<Health>();
+        }
+        Health.OnDeath.AddListener(this.OnDeath);
+
     }
 }
