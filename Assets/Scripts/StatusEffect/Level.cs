@@ -10,7 +10,11 @@ public class Level : MonoBehaviour
     public TurretAttributes TurretStats;
     public TurretAttributes UpgradeTurretStats;
     public List<int> RequiredGold;
+
+    [Header("Unity Events")]
     public UnityEvent OnLevelUp = new();
+    public UnityEvent OnInsufficientGold = new();
+
     private Interactable interactable;
     
 
@@ -30,6 +34,7 @@ public class Level : MonoBehaviour
 
     public void LevelUp(GameObject Player)
     {
+        SingletonManager.Get<UIManager>().InteractUI.GetComponent<DisplayInteractMessage>().ChangeMesssageText("T To Upgrade");
         if (Input.GetKeyDown(KeyCode.T))
         {
             Gold playerGold = Player.GetComponent<Gold>();
@@ -39,11 +44,11 @@ public class Level : MonoBehaviour
                 {
                     if (CurrentLevel < MaxLevel)
                     {
-                        
                         CurrentLevel++;
                         TurretStats.Damage += UpgradeTurretStats.Damage;
                         TurretStats.FireRate += UpgradeTurretStats.FireRate;
                         Debug.Log("Upgraded");
+                        
                     }
                     playerGold.ReduceGold(RequiredGold[CurrentLevel-1]); 
                     OnLevelUp.Invoke();
@@ -51,6 +56,7 @@ public class Level : MonoBehaviour
                 else
                 {
                     Debug.Log("Not enough Gold");
+                    OnInsufficientGold.Invoke();
                 }
             }
             

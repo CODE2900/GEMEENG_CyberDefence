@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6595765767418326172
 Transform:
   m_ObjectHideFlags: 0
@@ -5080,7 +5080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6595765767418389404
 Transform:
   m_ObjectHideFlags: 0
@@ -9966,6 +9966,7 @@ MonoBehaviour:
   AttackRange: 100
   FirePoint: {fileID: 6595765767418099400}
   isStun: 0
+  Health: {fileID: 0}
   Damage: 5
 --- !u!114 &3558452372306627035
 MonoBehaviour:
@@ -10001,6 +10002,9 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   Attacker: {fileID: 0}
 --- !u!114 &1988335809073782238
 MonoBehaviour:
@@ -10017,6 +10021,9 @@ MonoBehaviour:
   CurrentGold: 0
   StartingGold: 0
   GoldReward: 50
+  OnGoldChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6595765767418123880
 GameObject:
   m_ObjectHideFlags: 0
