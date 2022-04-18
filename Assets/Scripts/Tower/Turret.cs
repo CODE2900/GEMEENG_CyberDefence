@@ -29,6 +29,9 @@ public class Turret : Unit
     public TowerTargeting Targeting;
     public Transform FirePoint;
 
+    //[Header("Sounds")]
+    //public AudioSource shootingSFX;
+
     // Start is called before the first frame update
     void Start()
     {

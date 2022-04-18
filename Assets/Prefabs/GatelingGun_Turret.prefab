@@ -1386,6 +1386,7 @@ MonoBehaviour:
   FiringModes: []
   Targeting: {fileID: 1724943247540119003}
   FirePoint: {fileID: 336669319}
+  shootingSFX: {fileID: 6683291378845752937, guid: b94fd20cb8d51de45908259eede48511, type: 3}
 --- !u!114 &1673992283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,7 +1452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a424fbf97339dd4d9157169602f9724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireRate: 3
+  FireRate: 2.5
   Recoil: 0
   Spread: 0
   Damage: 10

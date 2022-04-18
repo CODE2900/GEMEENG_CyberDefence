@@ -29,6 +29,7 @@ public class ChaingunTurret : Turret
                 if (enemyHealth)
                 {
                     Debug.Log("Has health");
+                    SingletonManager.Get<AudioManager>().playSFX(0);
                     ShootingParticle.Play(true);
                     Debug.Log("Manual Shooting");
                     enemyHealth.Attacker = SingletonManager.Get<GameManager>().Player;
@@ -53,8 +54,11 @@ public class ChaingunTurret : Turret
                     Debug.Log("Has health");
                     if (ShootingParticle)
                     {
+
                         ShootingParticle.Play();
                     }
+                    SingletonManager.Get<AudioManager>().playSFX(0);
+
                     enemyHealth.Attacker = SingletonManager.Get<GameManager>().Player;
                     enemyHealth.TakeDamage(Attributes.Damage);
                     Debug.Log("Auto Shooting");
