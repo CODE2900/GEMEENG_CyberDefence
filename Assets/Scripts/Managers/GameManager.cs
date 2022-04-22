@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class GameManager : MonoBehaviour
     [Header("Game Over UI")]
     public GameObject GameEndUI;
     public GameObject GameWonUI;
+
+    [Header("Events")]
+    public UnityEvent OnGameEnd = new UnityEvent();
 
     private void Awake()
     {
@@ -38,10 +42,12 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         GameEndUI.SetActive(true);
+        OnGameEnd.Invoke();
     }
 
     public void GameWon()
     {
         GameWonUI.SetActive(true);
+        OnGameEnd.Invoke();
     }
 }
