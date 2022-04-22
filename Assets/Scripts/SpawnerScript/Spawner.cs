@@ -8,20 +8,12 @@ public class Spawner : MonoBehaviour
     public GameObject enemyPrefab;
     [SerializeField]
     Transform spawnPoint;
-    //  public List<GameObject> waypoints = new List<GameObject>();
     public Transform Destination;
     public int numOfEnemiesToSpawn;
 
     public Coroutine spawnEnemiesRoutine;
     // Start is called before the first frame update
     void Start()
-    {
-        //spawnEnemiesRoutine = StartCoroutine(SpawningEnemies());
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
@@ -33,7 +25,7 @@ public class Spawner : MonoBehaviour
            // for (int i = 0; i < numOfEnemiesToSpawn; i++)
             //{
                 Assert.IsNotNull(enemyPrefab, "Enemy prefab should not be null or empty");
-                GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
                 //spawnedEnemy.GetComponent<AIMovement>().waypoints = waypoints;
                 spawnedEnemy.GetComponent<NavMeshAI>().waypoint = Destination;
         //}
