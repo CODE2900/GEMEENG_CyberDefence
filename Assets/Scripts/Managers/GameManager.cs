@@ -45,10 +45,6 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         TotalEnemyKilled += EnemyKilled;
-        SingletonManager.Remove<GameManager>();
-        SingletonManager.Remove<UIManager>();
-        SingletonManager.Remove<WaveManager>();
-        SingletonManager.Remove<AudioManager>();
         OnGameEnd.Invoke();
         
     }
@@ -60,10 +56,6 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         TotalEnemyKilled += EnemyKilled;
-        SingletonManager.Remove<GameManager>();
-        SingletonManager.Remove<UIManager>();
-        SingletonManager.Remove<WaveManager>();
-        SingletonManager.Remove<AudioManager>();
         OnGameEnd.Invoke();
     }
 }

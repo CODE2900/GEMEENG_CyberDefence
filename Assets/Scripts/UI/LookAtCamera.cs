@@ -14,7 +14,11 @@ public class LookAtCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.LookAt(this.transform.position + playerCameraTransform.forward);
+        if (playerCameraTransform)
+        {
+            transform.LookAt(this.transform.position + playerCameraTransform.forward);
+        }
+        
     }
 
     // Update is called once per frame

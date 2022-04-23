@@ -21,12 +21,21 @@ public class UIManager : MonoBehaviour
 
     public void OnRetryButtonClicked()
     {
+        SingletonManager.Remove<GameManager>();
+        SingletonManager.Remove<UIManager>();
+        SingletonManager.Remove<WaveManager>();
+        SingletonManager.Remove<AudioManager>();
         SceneManager.LoadScene("MapScene_Navigation");
         Debug.Log("Reloading Map");
     }
 
     public void OnBackToMenuButtonClicked()
     {
+        SingletonManager.Remove<GameManager>();
+        SingletonManager.Remove<UIManager>();
+        SingletonManager.Remove<WaveManager>();
+        SingletonManager.Remove<AudioManager>();
+        SingletonManager.Remove<MainMenuManager>();
         SceneManager.LoadScene("MainMenu");
         Debug.Log("Back to Main Menu");
     }

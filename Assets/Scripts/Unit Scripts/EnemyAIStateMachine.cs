@@ -43,10 +43,7 @@ public class EnemyAIStateMachine : StateMachineBehaviour
             animator.SetBool("isChasing", false);
             animator.SetBool("isPatrolling", true);
         }
-        if (SingletonManager.Get<GameManager>().IsGameOver)
-        {
-            
-        }
+
         //if (unit.GetComponent<AIMovement>().IsLastWaypoint())
         //{
         //    animator.SetBool("isPatrolling", false);
