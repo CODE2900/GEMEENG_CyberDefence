@@ -233,6 +233,9 @@ MonoBehaviour:
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
+  OnHeal:
+    m_PersistentCalls:
+      m_Calls: []
   Attacker: {fileID: 0}
 --- !u!114 &6747653404192302736
 MonoBehaviour:
@@ -251,7 +254,8 @@ MonoBehaviour:
   AttackRange: 100
   FirePoint: {fileID: 26307306774481213}
   isStun: 0
-  Damage: 0
+  Health: {fileID: 0}
+  Damage: 1
 --- !u!114 &-8369509800502833107
 MonoBehaviour:
   m_ObjectHideFlags: 0
