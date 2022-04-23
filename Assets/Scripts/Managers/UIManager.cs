@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,11 +19,19 @@ public class UIManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnRetryButtonClicked()
     {
-        
+        SceneManager.LoadScene("MapScene_Navigation");
+        Debug.Log("Reloading Map");
     }
+
+    public void OnBackToMenuButtonClicked()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Debug.Log("Back to Main Menu");
+    }
+
+    
 
 
 }
