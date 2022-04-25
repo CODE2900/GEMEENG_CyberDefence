@@ -55,8 +55,8 @@ public class Tile : MonoBehaviour
             }
         }
 
-        if(SingletonManager.Get<Inventory>().turretInventory > 0)
-        {
+        //if(SingletonManager.Get<Inventory>().turretInventory > 0)
+        //{
             //spawn ghost tower
             if (isEmpty && GhostTurretIndex == 0)
             {
@@ -78,24 +78,33 @@ public class Tile : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                // if (SingletonManager.Get<Inventory>().turretInventory > 0)
+                // {
                 if (isEmpty && GhostTurretIndex == 0)
                 {
-                    SingletonManager.Get<Inventory>().turretInventory -= 1;
-                    SingletonManager.Get<Inventory>().OnUseInventory.Invoke();
-                    GhostTurret[0].SetActive(false);
-                    TurretTower.SetActive(true);
-                    TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
-                    isEmpty = false;
+                    if (SingletonManager.Get<Inventory>().turretInventory > 0)
+                    {
+                        SingletonManager.Get<Inventory>().turretInventory -= 1;
+                        SingletonManager.Get<Inventory>().OnUseInventory.Invoke();
+                        GhostTurret[0].SetActive(false);
+                        TurretTower.SetActive(true);
+                        TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
+                        isEmpty = false;
+                    }
                 }
                 else if (isEmpty && GhostTurretIndex == 1)
                 {
-                    SingletonManager.Get<Inventory>().turretInventory -= 1;
-                    SingletonManager.Get<Inventory>().OnUseInventory.Invoke();
-                    GhostTurret[1].SetActive(false);
-                    EMPTower.SetActive(true);
-                    EMPTower.GetComponent<Turret>().Targeting.targets.Clear();
-                    isEmpty = false;
+                    if (SingletonManager.Get<Inventory>().turretInventory > 0)
+                    {
+                        SingletonManager.Get<Inventory>().turretInventory -= 1;
+                        SingletonManager.Get<Inventory>().OnUseInventory.Invoke();
+                        GhostTurret[1].SetActive(false);
+                        EMPTower.SetActive(true);
+                        EMPTower.GetComponent<Turret>().Targeting.targets.Clear();
+                        isEmpty = false;
+                    }
                 }
+                // }
                 else if (!isEmpty)
                 {
                     SingletonManager.Get<Inventory>().turretInventory += 1;
@@ -117,7 +126,7 @@ public class Tile : MonoBehaviour
                 }
 
             }
-        }
+        //}
         
     }
 }

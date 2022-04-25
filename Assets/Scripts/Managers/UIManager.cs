@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
         SingletonManager.Remove<UIManager>();
         SingletonManager.Remove<WaveManager>();
         SingletonManager.Remove<AudioManager>();
+        SingletonManager.Remove<Inventory>();
         SceneManager.LoadScene("MapScene_Navigation");
         Debug.Log("Reloading Map");
     }
@@ -36,6 +37,7 @@ public class UIManager : MonoBehaviour
         SingletonManager.Remove<WaveManager>();
         SingletonManager.Remove<AudioManager>();
         SingletonManager.Remove<MainMenuManager>();
+        SingletonManager.Remove<Inventory>();
         SceneManager.LoadScene("MainMenu");
         Debug.Log("Back to Main Menu");
     }

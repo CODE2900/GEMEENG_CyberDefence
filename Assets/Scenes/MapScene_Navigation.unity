@@ -9384,6 +9384,7 @@ MonoBehaviour:
   Player: {fileID: 1741445133}
   MainBase: {fileID: 1413293383}
   playerCamera: {fileID: 398733446}
+  IsGameOver: 0
   EnemyKilled: 0
   TotalEnemyKilled: 0
   GameEndUI: {fileID: 1510899645}
@@ -9461,7 +9462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1510899646
 RectTransform:
   m_ObjectHideFlags: 0
