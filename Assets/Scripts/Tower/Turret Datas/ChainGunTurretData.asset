@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7c3e9f1720fa84e903d680cb7b5bb8, type: 3}
+  m_Name: ChainGunTurretData
+  m_EditorClassIdentifier: 
+  TurretPrefab: {fileID: 7897360142860677177, guid: 870c058b845abdc42a6655a8a468982e, type: 3}
+  TurretGhostPrefab: {fileID: 0}

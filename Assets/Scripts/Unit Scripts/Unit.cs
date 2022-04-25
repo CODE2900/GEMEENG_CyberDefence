@@ -25,6 +25,11 @@ public class Unit : MonoBehaviour
 
     }
 
+    public virtual void Initialize()
+    {
+
+    }
+
     //For Testing Attack State
     //public void Shoot()
     //{

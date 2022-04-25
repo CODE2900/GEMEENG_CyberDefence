@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
     [Header("Mouse")]
-    public float mouseSensitivity = 100.0f;
-    public float xRotation = 0f;
-    public Transform player;
+    public float MouseSensitivity = 100.0f;
+    public float XRotation = 0f;
+    public GameObject Player;
+    
 
     RaycastHit hit;
 
@@ -21,14 +22,14 @@ public class PlayerCamera : MonoBehaviour
     void Update()
     {
         #region mouseControls
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -45f, 45f);
+        XRotation -= mouseY;
+        XRotation = Mathf.Clamp(XRotation, -45f, 45f);
 
-        this.gameObject.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        player.Rotate(Vector3.up * mouseX);
+        this.gameObject.transform.localRotation = Quaternion.Euler(XRotation, 0f, 0f);
+        Player.transform.Rotate(Vector3.up * mouseX);
         #endregion
 
         #region raycasting
@@ -43,6 +44,11 @@ public class PlayerCamera : MonoBehaviour
             if (hit.collider.gameObject.GetComponent<Interactable>() != null)
             {
                 hit.collider.gameObject.GetComponent<Interactable>().InvokeInteract();
+                hit.collider.gameObject.GetComponent<Interactable>().Interact(Player);
+            }
+            else
+            {
+                SingletonManager.Get<UIManager>().InteractUI.GetComponent<DisplayInteractMessage>().RemoveMessageText();
             }
             
             

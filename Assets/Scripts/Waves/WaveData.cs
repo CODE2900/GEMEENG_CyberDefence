@@ -5,19 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewWaveData", menuName = "WaveData")]
 public class WaveData : ScriptableObject
 {
+    [System.Serializable]
+    public class SpawnData
+    {
+        public GameObject EnemiesToSpawn;
+        public int NumToSpawn;
+    }
     public List<GameObject> EnemiesToSpawn;
     public int NumToSpawn = 1;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<SpawnData> SpawnDatas;
 }

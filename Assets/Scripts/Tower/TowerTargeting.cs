@@ -6,9 +6,7 @@ using System.Linq;
 public class TowerTargeting : MonoBehaviour
 {
     public List<GameObject> targets;
-
-    //public Collider collider;
-
+    public SphereCollider SphereCollider;
    // public GameObject target;
     public Turret turret;
 
@@ -37,11 +35,9 @@ public class TowerTargeting : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponentInParent<Enemy>() != null)
+        if(other.gameObject.GetComponent<Enemy>() != null)
         {
-            HealthComponent enemyHealth = other.gameObject.GetComponentInParent<HealthComponent>();
-            enemyHealth.OnDeath.AddListener(OnTargetDeath);
-            targets.Add(other.transform.parent.gameObject);
+            targets.Add(other.transform.gameObject);
         }
     }
 
@@ -52,7 +48,10 @@ public class TowerTargeting : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        targets.Remove(other.gameObject);
+        
+         targets.Remove(other.gameObject);
+        
+          
         //target = null;
     }
 

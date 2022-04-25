@@ -10,64 +10,43 @@ enum firingMode
 
 public class Turret : Unit
 {
-    public string name;
-    public float fireRate;
-    public GameObject projectile; 
-    public GameObject turretHead;
-    public float recoil;
-    public float spread;
-    public float damage;
-
+    public string ID; 
+    //public float FireRate;
+    public GameObject Projectile; 
+    public GameObject TurretHead;
+    //public float Recoil;
+    //public float Spread;
+    //public float Damage;
+    public TurretAttributes Attributes;
+    //public int Level;
     public ParticleSystem ShootingParticle;
+    public GameObject Status;
+
+    public List<Skill> TurretSkills = new();
+    public List<GameObject> FiringModes = new();
     
     [Header("Targets")]
     public TowerTargeting Targeting;
     public Transform FirePoint;
 
-    [SerializeField] private float fireTime = 1.5f;
+    //[Header("Sounds")]
+    //public AudioSource shootingSFX;
 
     // Start is called before the first frame update
     void Start()
     {
-       // StartCoroutine(Firing());
+       
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void AutoFire()
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
-        if(Targeting.targets.Count > 0)
-        {
-            Shoot();
-        }
-        else
-        {
-            ShootingParticle.Stop();
-            fireTime = 1.5f;
-        }
-    }
-
-    public void Shoot()
-    {
-        if (fireTime <= 0)
-        {
-            Debug.Log("Turret Shooting");
-            ShootingParticle.Play();
-            Targeting.targets[0].GetComponentInParent<HealthComponent>().OnHit.Invoke(damage);
-            fireTime = fireRate;
-            
-        }
-        else
-        {
-            fireTime -= Time.deltaTime;
-        }
 
        
     }
 
-   
+    public virtual void ManualShooting()
+    {
+
+    }
+    
 }

@@ -9,13 +9,16 @@ public class Tile : MonoBehaviour
     public Interactable Interactable;
 
     public GameObject[] GhostTurret;
+    public int GhostTurretIndex;
     public GameObject TurretTower;
+    public GameObject EMPTower;
 
     bool isEmpty = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        GhostTurretIndex = 0;
         if (Interactable != null)
         {
             Interactable.EvtInteracted.AddListener(Interact);
@@ -37,37 +40,93 @@ public class Tile : MonoBehaviour
 
     }
 
-    public void Interact()
+    public void Interact(GameObject Player)
     {
-        //spawn ghost tower
-        if (isEmpty)
+        SingletonManager.Get<UIManager>().InteractUI.GetComponent<DisplayInteractMessage>().ChangeMesssageText("Q to change turret. E to place turret");
+        if(Input.GetKeyDown(KeyCode.Q))
         {
-            this.gameObject.GetComponent<Renderer>().material = Materials[1];
-            GhostTurret[0].SetActive(true);
-        }
-        else
-        {
-            this.gameObject.GetComponent<Renderer>().material = Materials[1];
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if(isEmpty)
+            if(GhostTurretIndex > GhostTurret.Length)
             {
+                GhostTurretIndex = 0;
+            }
+            else
+            {
+                GhostTurretIndex++;
+            }
+        }
+
+        //if(SingletonManager.Get<Inventory>().turretInventory > 0)
+        //{
+            //spawn ghost tower
+            if (isEmpty && GhostTurretIndex == 0)
+            {
+                this.gameObject.GetComponent<Renderer>().material = Materials[1];
+                GhostTurret[0].SetActive(true);
+                GhostTurret[1].SetActive(false);
+            }
+            else if (isEmpty && GhostTurretIndex == 1)
+            {
+                this.gameObject.GetComponent<Renderer>().material = Materials[1];
                 GhostTurret[0].SetActive(false);
-                TurretTower.SetActive(true);
-                TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
-                isEmpty = false;
+                GhostTurret[1].SetActive(true);
             }
-            else if(!isEmpty)
+            else
             {
-                Debug.Log("Turret Remove");
-                TurretTower.SetActive(false);
-                TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
-                isEmpty = true;
+                this.gameObject.GetComponent<Renderer>().material = Materials[0];
             }
-            
-        }
+
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                // if (SingletonManager.Get<Inventory>().turretInventory > 0)
+                // {
+                if (isEmpty && GhostTurretIndex == 0)
+                {
+                    if (SingletonManager.Get<Inventory>().turretInventory > 0)
+                    {
+                        SingletonManager.Get<Inventory>().turretInventory -= 1;
+                        SingletonManager.Get<Inventory>().OnUseInventory.Invoke();
+                        GhostTurret[0].SetActive(false);
+                        TurretTower.SetActive(true);
+                        TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
+                        isEmpty = false;
+                    }
+                }
+                else if (isEmpty && GhostTurretIndex == 1)
+                {
+                    if (SingletonManager.Get<Inventory>().turretInventory > 0)
+                    {
+                        SingletonManager.Get<Inventory>().turretInventory -= 1;
+                        SingletonManager.Get<Inventory>().OnUseInventory.Invoke();
+                        GhostTurret[1].SetActive(false);
+                        EMPTower.SetActive(true);
+                        EMPTower.GetComponent<Turret>().Targeting.targets.Clear();
+                        isEmpty = false;
+                    }
+                }
+                // }
+                else if (!isEmpty)
+                {
+                    SingletonManager.Get<Inventory>().turretInventory += 1;
+                    SingletonManager.Get<Inventory>().OnUseInventory.Invoke();
+                    Debug.Log("Turret Remove");
+                    if (TurretTower.activeInHierarchy)
+                    {
+                        TurretTower.SetActive(false);
+                        TurretTower.GetComponent<Turret>().Targeting.targets.Clear();
+                        isEmpty = true;
+                    }
+                    else if (EMPTower.activeInHierarchy)
+                    {
+                        EMPTower.SetActive(false);
+                        EMPTower.GetComponent<Turret>().Targeting.targets.Clear();
+                        isEmpty = true;
+                    }
+
+                }
+
+            }
+        //}
+        
     }
 }
