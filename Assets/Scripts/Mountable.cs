@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Mountable : MonoBehaviour
 {
@@ -27,11 +28,16 @@ public class Mountable : MonoBehaviour
     private float FireTimer = 0;
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         TurretParent = this.gameObject.transform.parent.GetComponent<Turret>();
         TurretCamera.enabled = false;
         isMounted = false;
         InteractCollider = this.GetComponent<BoxCollider>();
+        AudioListener listener = TurretCamera.gameObject.GetComponent<AudioListener>();
+        if (listener)
+        {
+            listener.enabled = false;
+        }
         
     }
 
@@ -69,6 +75,11 @@ public class Mountable : MonoBehaviour
                         Debug.Log("Unmount");
                         isMounted = false;
                         TurretCamera.enabled = false;
+                        AudioListener listener = TurretCamera.gameObject.GetComponent<AudioListener>();
+                        if (listener)
+                        {
+                            listener.enabled = false;
+                        }
                         AITurretControl turretAI = TurretParent.gameObject.GetComponent<AITurretControl>();
                         if (turretAI)
                         {
@@ -120,7 +131,12 @@ public class Mountable : MonoBehaviour
                     }
                     isMounted = true;
                     TurretCamera.enabled = true;
-                    
+                    AudioListener listener = TurretCamera.gameObject.GetComponent<AudioListener>();
+                    if (listener)
+                    {
+                        listener.enabled = true;
+                    }
+
                     InteractCollider.enabled = false;
                 }
             }
