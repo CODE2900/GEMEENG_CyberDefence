@@ -15,3 +15,8 @@ MonoBehaviour:
   EnemiesToSpawn:
   - {fileID: 7298887397441308323, guid: 9cedeaaee56648341915388e97e9e14e, type: 3}
   NumToSpawn: 5
+  SpawnDatas:
+  - EnemiesToSpawn: {fileID: 0}
+    NumToSpawn: 0
+  - EnemiesToSpawn: {fileID: 0}
+    NumToSpawn: 0

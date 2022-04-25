@@ -6,22 +6,10 @@ public class AudioManager : MonoBehaviour
 {
     public BGM musicBGM;
     public List<SFX> audioSFX;
-    // Start is called before the first frame update
-
-    void Start()
-    {
-
-    }
-
+    
     private void Awake()
     {
         SingletonManager.Register(this);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void playMusic()

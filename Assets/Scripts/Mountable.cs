@@ -26,6 +26,7 @@ public class Mountable : MonoBehaviour
     private Coroutine particleEffectRoutine;
     private RaycastHit hit;
     private float FireTimer = 0;
+    private bool hasStarted = false;
     // Start is called before the first frame update
     void Start()
     { 
@@ -38,8 +39,19 @@ public class Mountable : MonoBehaviour
         {
             listener.enabled = false;
         }
-        
+
+        /*if (particleEffectRoutine != null)
+        {
+            StopCoroutine(particleEffectRoutine);
+            particleEffectRoutine = null;
+        }*/
+        //particleEffectRoutine = StartCoroutine();
     }
+
+    //IEnumerator ParticleEffectsSequence()
+    //{
+    //    yield return new WaitUntil(() => hasStarted);
+    //}
 
     // Update is called once per frame
     void Update()
